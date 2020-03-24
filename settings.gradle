@@ -1,0 +1,2 @@
+rootProject.name='Defeat The Troll'
+include ':app'
