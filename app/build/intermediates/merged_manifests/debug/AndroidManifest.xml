@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.defeatthetroll.QuestChoice" />
+        <activity android:name="com.example.defeatthetroll.Choice" />
+        <activity android:name="com.example.defeatthetroll.Quest" />
         <activity android:name="com.example.defeatthetroll.Axe" />
         <activity android:name="com.example.defeatthetroll.End" />
         <activity android:name="com.example.defeatthetroll.Memes" />

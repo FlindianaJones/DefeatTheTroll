@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val memeIntent = Intent(this, Memes::class.java)
         val axeIntent = Intent(this, Axe::class.java)
+        val questIntent = Intent(this, Quest::class.java)
 
         meme_btn.setOnClickListener {
             Log.d("btn_click", "Clicked meme")
@@ -24,6 +25,11 @@ class MainActivity : AppCompatActivity() {
         axe_btn.setOnClickListener {
             Log.d("btn_click", "Clicked axe")
             startActivity(axeIntent)
+        }
+
+        quest_btn.setOnClickListener {
+            Log.d("btn_click", "Clicked quest")
+            startActivity(questIntent)
         }
     }
 }

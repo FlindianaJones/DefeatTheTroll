@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Axe"></activity>
+        <activity android:name=".QuestChoice"></activity>
+        <activity android:name=".Choice"></activity>
+        <activity android:name=".Quest" />
+        <activity android:name=".Axe" />
         <activity android:name=".End" />
         <activity android:name=".Memes" />
         <activity android:name=".MainActivity">

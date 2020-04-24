@@ -2,10 +2,12 @@ package com.example.defeatthetroll
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.ColorFilter
+import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_memes.*
 import kotlin.random.Random
@@ -31,7 +33,9 @@ class Memes : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
+            selected_meme_img.colorFilter = null
             val imagePath = (data?.data as Uri).toString()
+            selected_meme_img.setImageURI(data?.data)
             if (imagePath == "") {
                 result_txt.text = getText(R.string.generic_error)
                 return
@@ -44,10 +48,19 @@ class Memes : AppCompatActivity() {
             val damage = getDamageFromString(imagePath)
             Log.d("memes.uploaded", "Got $damage from $imagePath")
             when {
-                damage > 40 -> result_txt.text = getText(R.string.meme_high_dmg_txt)
-                damage > 20 -> result_txt.text = getText(R.string.meme_med_dmg_txt)
+                damage > 40 -> {
+                    result_txt.text = getText(R.string.meme_high_dmg_txt)
+                    selected_meme_img.setColorFilter(Color.rgb(0, 128, 0), PorterDuff.Mode.ADD)
+                }
+                damage > 20 -> {
+                    result_txt.text = getText(R.string.meme_med_dmg_txt)
+                    selected_meme_img.setColorFilter(Color.rgb(0, 0, 128), PorterDuff.Mode.ADD)
+                }
                 damage > 0 -> result_txt.text = getText(R.string.meme_low_dmg_txt)
-                else -> result_txt.text = getText(R.string.meme_negative_dmg_txt)
+                else -> {
+                    result_txt.text = getText(R.string.meme_negative_dmg_txt)
+                    selected_meme_img.setColorFilter(Color.rgb(128, 0, 0), PorterDuff.Mode.ADD)
+                }
             }
             troll.hitpoints -= damage
             if (troll.hitpoints <= 0) {

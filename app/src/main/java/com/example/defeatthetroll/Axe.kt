@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_axe.*
 
 class Axe : AppCompatActivity() {
 
-    val weapons = arrayOf(Weapon(0, 15, 0, 10, "War Axe"), Weapon(5, 10, 15, 0, "Peace Axe"), Weapon(0, 10, 10, 10, "War and Peace Axe"))
+    val weapons = arrayOf(Weapon(0, 20, 0, 10, "War Axe"), Weapon(5, 15, 20, 0, "Peace Axe"), Weapon(5, 15, 10, 10, "War and Peace Axe"))
     var troll = Troll()
     var player = Player()
 
@@ -69,6 +69,7 @@ class Axe : AppCompatActivity() {
                 }
             }
         }
+        //TODO: update color filters based on hitpoints remaining?
         endCheck()
     }
 
@@ -88,6 +89,7 @@ class Axe : AppCompatActivity() {
                 player_result_txt.text = player_result_txt.text.toString() + "\nYou both awkwardly defend at each other, then shake it off and continue."
             }
         }
+        //TODO: write a function for color filter updating
         endCheck()
     }
 

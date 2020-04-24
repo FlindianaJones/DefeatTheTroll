@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    style="@style/CustomTheme"
     tools:context=".MainActivity">
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_marginRight="8dp"
         android:text="@string/splash_text"
         android:textSize="24sp"
+        style="@style/CustomTheme"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -40,5 +42,15 @@
         android:text="@string/axe_btn_txt"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/meme_btn" />
+
+    <Button
+        android:id="@+id/quest_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/quest_btn_txt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/axe_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

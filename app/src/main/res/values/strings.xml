@@ -24,4 +24,8 @@
     <string name="war_and_peace_axe_btn_txt">War and Peace Axe</string>
     <string name="attack_btn_txt">Attack</string>
     <string name="defend_btn_txt">Defend</string>
+    <string name="quest_btn_txt">Quest</string>
+    <string name="quest_prompt_txt">Very well, human, a quest it shall be.\nAs you journey, you will gain keywords that will effect your choices; choose wisely!</string>
+    <string name="Continue_btn_txt">Continue</string>
+    <string name="keywords_prefix">Keywords:\n</string>
 </resources>
