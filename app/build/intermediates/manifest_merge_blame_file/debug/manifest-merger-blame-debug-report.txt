@@ -11,7 +11,7 @@
 9-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml
 10
 11    <application
-11-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:5:5-25:19
+11-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:5:5-27:19
 12        android:allowBackup="true"
 12-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:6:9-35
 13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -29,38 +29,44 @@
 20        android:testOnly="true"
 21        android:theme="@style/AppTheme" >
 21-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:11:9-40
-22        <activity android:name="com.example.defeatthetroll.QuestChoice" />
+22        <activity android:name="com.example.defeatthetroll.LoveProfile" />
 22-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:12:9-58
 22-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:12:19-46
-23        <activity android:name="com.example.defeatthetroll.Choice" />
-23-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:9-53
-23-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:19-41
-24        <activity android:name="com.example.defeatthetroll.Quest" />
-24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:9-43
-24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:19-40
-25        <activity android:name="com.example.defeatthetroll.Axe" />
-25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:9-41
-25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:19-38
-26        <activity android:name="com.example.defeatthetroll.End" />
-26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:9-41
-26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:19-38
-27        <activity android:name="com.example.defeatthetroll.Memes" />
-27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:9-43
-27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:19-40
-28        <activity android:name="com.example.defeatthetroll.MainActivity" >
-28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:9-24:20
-28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:19-47
-29            <intent-filter>
-29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:13-23:29
-30                <action android:name="android.intent.action.MAIN" />
-30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:17-69
-30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:17-77
-32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:27-74
-33            </intent-filter>
-34        </activity>
-35    </application>
-36
-37</manifest>
+23        <activity android:name="com.example.defeatthetroll.Love" />
+23-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:9-42
+23-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:19-39
+24        <activity android:name="com.example.defeatthetroll.QuestChoice" />
+24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:9-49
+24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:19-46
+25        <activity android:name="com.example.defeatthetroll.Choice" />
+25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:9-44
+25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:19-41
+26        <activity android:name="com.example.defeatthetroll.Quest" />
+26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:9-43
+26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:19-40
+27        <activity android:name="com.example.defeatthetroll.Axe" />
+27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:9-41
+27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:19-38
+28        <activity android:name="com.example.defeatthetroll.End" />
+28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:9-41
+28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:19-38
+29        <activity android:name="com.example.defeatthetroll.Memes" />
+29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:9-43
+29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:19-40
+30        <activity android:name="com.example.defeatthetroll.MainActivity" >
+30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:9-26:20
+30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:19-47
+31            <intent-filter>
+31-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:21:13-25:29
+32                <action android:name="android.intent.action.MAIN" />
+32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:17-69
+32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:25-66
+33
+34                <category android:name="android.intent.category.LAUNCHER" />
+34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:17-77
+34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:27-74
+35            </intent-filter>
+36        </activity>
+37    </application>
+38
+39</manifest>

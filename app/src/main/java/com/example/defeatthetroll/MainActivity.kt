@@ -13,23 +13,24 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val memeIntent = Intent(this, Memes::class.java)
-        val axeIntent = Intent(this, Axe::class.java)
-        val questIntent = Intent(this, Quest::class.java)
-
         meme_btn.setOnClickListener {
             Log.d("btn_click", "Clicked meme")
-            startActivity(memeIntent)
+            startActivity(Intent(this, Memes::class.java))
         }
 
         axe_btn.setOnClickListener {
             Log.d("btn_click", "Clicked axe")
-            startActivity(axeIntent)
+            startActivity(Intent(this, Axe::class.java))
         }
 
         quest_btn.setOnClickListener {
             Log.d("btn_click", "Clicked quest")
-            startActivity(questIntent)
+            startActivity(Intent(this, Quest::class.java))
+        }
+
+        love_btn.setOnClickListener {
+            Log.d("btn_click", "Clicked love")
+            startActivity(Intent(this, Love::class.java))
         }
     }
 }

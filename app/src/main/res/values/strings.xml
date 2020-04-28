@@ -28,4 +28,12 @@
     <string name="quest_prompt_txt">Very well, human, a quest it shall be.\nAs you journey, you will gain keywords that will effect your choices; choose wisely!</string>
     <string name="Continue_btn_txt">Continue</string>
     <string name="keywords_prefix">Keywords:\n</string>
+    <string name="love_btn_text">Love</string>
+    <string name="love_prompt">Erm.\nWell, okay, I guess I did offer it.\nYou pull out your phone and install the app \"Love at First Bite,\" the premier dating app for Trolls. After setting up a profile, you show the Troll all the single Lady Trolls in the area he can connect with. (Choose a Trollady below and try and connect!)</string>
+    <string name="find_love_btn_txt"><![CDATA[Go Find Love! <3]]></string>
+    <string name="name_label_txt">Name:</string>
+    <string name="favorite_label_txt">Favorite Thing:</string>
+    <string name="bite_btn_txt">Bite Now!</string>
+    <string name="message_input_hint">Enter Message Text Here</string>
+    <string name="send_btn_txt">Send</string>
 </resources>
