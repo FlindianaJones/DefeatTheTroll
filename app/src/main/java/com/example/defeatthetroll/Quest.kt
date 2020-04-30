@@ -56,13 +56,14 @@ class Quest : AppCompatActivity() {
     }
 
     private fun theEnd() {
-        output.text = "${output.text}\n\nApologies for this terminal state, but you are dead."
-        continue_btn.text = getText(R.string.play_again_btn_txt)
-        continue_btn.setOnClickListener {
-            val mainIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainIntent)
-            finish()
-        }
+        val endIntent = Intent(this, End::class.java)
+        endIntent.putExtra(
+            "message",
+            "${output.text}\n\nApologies for this terminal state, but you are dead."
+        )
+        endIntent.putExtra("victory", false)
+        startActivity(endIntent)
+        finish()
     }
 
     private val quests = arrayOf(

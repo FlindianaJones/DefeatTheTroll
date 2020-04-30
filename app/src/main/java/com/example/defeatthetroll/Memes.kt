@@ -27,7 +27,7 @@ class Memes : AppCompatActivity() {
     private fun openGallery(){
         val intent = Intent("android.intent.action.GET_CONTENT")
         intent.type = "image/*"
-        startActivityForResult(intent, 1)
+        startActivityForResult(intent, 100)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -72,6 +72,7 @@ class Memes : AppCompatActivity() {
                 )
                 endIntent.putExtra("victory", true)
                 startActivity(endIntent)
+                finish()
             }
             Log.d("memes.uploaded", "How many memes? ${memesTried.count()}")
             if (memesTried.count() == 5) {
@@ -82,6 +83,7 @@ class Memes : AppCompatActivity() {
                 )
                 endIntent.putExtra("victory", false)
                 startActivity(endIntent)
+                finish()
             }
         } else {
             result_txt.text = getText(R.string.generic_error)

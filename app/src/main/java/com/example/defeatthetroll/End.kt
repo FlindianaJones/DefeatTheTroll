@@ -18,8 +18,6 @@ class End : AppCompatActivity() {
             end_splash_txt.text = this.getText(R.string.defeat_splash_txt)
         }
 
-        val playAgainIntent = Intent(this, MainActivity::class.java)
-
-        play_again_btn.setOnClickListener { startActivity(playAgainIntent) }
+        play_again_btn.setOnClickListener { finish() }
     }
 }

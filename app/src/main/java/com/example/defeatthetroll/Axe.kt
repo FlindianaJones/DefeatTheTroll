@@ -42,6 +42,7 @@ class Axe : AppCompatActivity() {
         }
         if(troll.hitpoints <= 0 || player.hitpoints <= 0) {
             startActivity(endIntent)
+            finish()
         }
     }
 

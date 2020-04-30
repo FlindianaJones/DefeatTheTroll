@@ -1,12 +1,16 @@
 package com.example.defeatthetroll
 
+import android.app.Activity
+import android.app.Instrumentation
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_love_profile.*
+import java.lang.Thread.sleep
 import java.util.*
+import kotlin.concurrent.schedule
 
 class LoveProfile : AppCompatActivity() {
     lateinit var keywords: Array<String>
@@ -51,12 +55,21 @@ class LoveProfile : AppCompatActivity() {
                 support--
             }
             if(support <= -3){
-                intent.putExtra("bitten_lady", ladypos)
+                setResult(Activity.RESULT_OK)
+                intent.putExtra("success", false)
+                finish()
+            } else if (support >= 3) {
+                setResult(Activity.RESULT_OK)
+                intent.putExtra("success", true)
                 finish()
             }
-            Log.d("troll_support", "Support is now $support")
             message_list.adapter?.notifyDataSetChanged()
             message_text_input.text.clear()
+            if(supportUp) {
+                sleep(1000)
+                chatMessages.add(chatMessages.size, ChatMessage("Ooh la la!", Date(), false))
+                message_list.adapter?.notifyDataSetChanged()
+            }
         }
     }
 }

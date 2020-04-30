@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-class TrollLadyAdapter(private val ladyTrolls: List<TrollLady>) : RecyclerView.Adapter<TrollLadyAdapter.ViewHolder>() {
+class TrollLadyAdapter(private val ladyTrolls: List<TrollLady>, val parentActivityLauncher: (TrollLady, Int) -> Unit) : RecyclerView.Adapter<TrollLadyAdapter.ViewHolder>() {
 
     // Provide a direct reference to each of the views within a data item
     // Used to cache the views within the item layout for fast access
@@ -48,13 +48,7 @@ class TrollLadyAdapter(private val ladyTrolls: List<TrollLady>) : RecyclerView.A
         button.isEnabled = !lovelyLady.bitten
 
         button.setOnClickListener {
-            Log.d("troll_view", "Viewing ${lovelyLady.name}")
-            val profileIntent = Intent(button.context, LoveProfile::class.java)
-            profileIntent.putExtra("name", lovelyLady.name)
-            profileIntent.putExtra("favorite", lovelyLady.favorite)
-            profileIntent.putExtra("keywords", TrollLady.favorites[lovelyLady.favorite])
-            profileIntent.putExtra("ladypos", position)
-            button.context.startActivity(profileIntent)
+            parentActivityLauncher(lovelyLady, position)
         }
     }
 
