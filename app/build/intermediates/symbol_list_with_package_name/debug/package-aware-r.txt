@@ -1221,6 +1221,7 @@ id icon
 id icon_group
 id ifRoom
 id image
+id imageView
 id info
 id invisible
 id italic
@@ -1235,6 +1236,7 @@ id listMode
 id list_item
 id love_btn
 id love_list
+id love_profile_top_cont
 id love_prompt
 id masked
 id meme_btn
@@ -1271,13 +1273,11 @@ id percent
 id pin
 id play_again_btn
 id player_result_txt
-id profile_picture
 id progress_circular
 id progress_horizontal
 id promptResult
 id quest_btn
 id radio
-id recyclerView
 id result_txt
 id right
 id right_icon

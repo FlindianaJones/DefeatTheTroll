@@ -21,7 +21,7 @@ class Love : AppCompatActivity() {
         setContentView(R.layout.activity_love)
 
         if (trollLadyList.size == 0) {
-            trollLadyList = TrollLady.createTrollLadies(20)
+            trollLadyList = TrollLady.createTrollLadies(5)
         }
 
         find_love_btn.setOnClickListener {
@@ -53,11 +53,17 @@ class Love : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode in 400..499) {
-            val success = data?.getBooleanExtra("success", false) ?: false
-            Log.d(
-                "troll_bite",
-                "Just returned after biting ${trollLadyList[requestCode - 400].name} ${if(success){"successfully"} else {"unsuccessfully"}}"
-            )
+            val success = resultCode == Activity.RESULT_OK
+            if(success) {
+                val endIntent = Intent(this, End::class.java)
+                endIntent.putExtra("message", "Groo makes a successful love connection with ${trollLadyList[requestCode - 400].name}, and you defeat him. That's the POWER of love!")
+                endIntent.putExtra("victory", true)
+                startActivity(endIntent)
+                finish()
+            } else {
+                trollLadyList[requestCode-400].bitten = true
+                adapter?.notifyItemChanged(requestCode - 400)
+            }
         }
     }
 }

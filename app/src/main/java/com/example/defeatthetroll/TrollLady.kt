@@ -29,6 +29,14 @@ class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
             return list[(Math.random() * (list.size - 1)).roundToInt()]
         }
 
+        fun positiveResponse() : String {
+            return randomFromList(positiveResponses)
+        }
+
+        fun negativeResponse() : String {
+            return randomFromList(negativeResponses)
+        }
+
         val favorites = hashMapOf<String, Array<String>>(
             Pair(
                 "Battle",
@@ -141,4 +149,24 @@ val lastnameSecondHalves = arrayOf(
     "battle",
     "hide",
     "roar"
+)
+val positiveResponses = arrayOf(
+    "Ooh la la!",
+    "Tell me more!",
+    "My kind of guy!",
+    "No way, me too!",
+    "Oh really?",
+    "Nice!",
+    "Keep going, haha..."
+)
+
+val negativeResponses = arrayOf(
+    "Ugh, all men are the same.",
+    "What?!",
+    "I hope you die in a fire full of spiders and your least favorite food.",
+    "You sound like the last man whose head I put on my wall...",
+    "Oh no you DIDn't!",
+    "Thanks, I hate it",
+    "Unsubscribe",
+    "404 ERROR: Interest not found"
 )
