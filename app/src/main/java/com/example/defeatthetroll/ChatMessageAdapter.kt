@@ -1,31 +1,36 @@
 package com.example.defeatthetroll
 
-import android.content.Intent
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Space
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-class ChatMessageAdapter(private val chatMessages: List<ChatMessage>) : RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>() {
+class ChatMessageAdapter(private val chatMessages: List<ChatMessage>) :
+    RecyclerView.Adapter<ChatMessageAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var messageTextView: TextView = itemView.findViewById(R.id.message_txt) as TextView
+        var leftPad: Space = itemView.findViewById(R.id.chat_msg_left_pad) as Space
+        var rightPad: Space = itemView.findViewById(R.id.chat_msg_right_pad) as Space
     }
 
     // ... constructor and member variables
     // Usually involves inflating a layout from XML and returning the holder
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatMessageAdapter.ViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): ChatMessageAdapter.ViewHolder {
         val context = parent.context
         val inflater = LayoutInflater.from(context)
         // Inflate the custom layout
-        val contactView = inflater.inflate(R.layout.chat_message, parent, false)
+        val chatView = inflater.inflate(R.layout.chat_message, parent, false)
         // Return a new holder instance
-        return ViewHolder(contactView)
+        return ViewHolder(chatView)
     }
 
     // Involves populating data into the item through holder
@@ -34,13 +39,15 @@ class ChatMessageAdapter(private val chatMessages: List<ChatMessage>) : Recycler
         val chatMessage = chatMessages[position]
         // Set item views based on your views and data model
         val textView = viewHolder.messageTextView
+        val right = viewHolder.rightPad
+        val left = viewHolder.leftPad
         textView.text = chatMessage.Text
-        if(chatMessage.outgoing) {
+        if (chatMessage.outgoing) {
             textView.setBackgroundColor(Color.rgb(200, 200, 255))
-            textView.setPadding(120, 0, 0, 0)
+            right.visibility = View.GONE
         } else {
             textView.setBackgroundColor(Color.rgb(255, 200, 200))
-            textView.setPadding(0, 0, 120, 0)
+            left.visibility = View.GONE
         }
     }
 

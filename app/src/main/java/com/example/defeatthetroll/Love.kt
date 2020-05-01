@@ -62,6 +62,19 @@ class Love : AppCompatActivity() {
                 finish()
             } else {
                 trollLadyList[requestCode-400].bitten = true
+                var allBitten = true
+                for(lady in trollLadyList) {
+                    allBitten = allBitten && lady.bitten
+                    if (!allBitten)
+                        break
+                }
+                if(allBitten){
+                    val endIntent = Intent(this, End::class.java)
+                    endIntent.putExtra("message", "Having struck out with every lady in a 50 mile radius, Groo kills you with your own phone. Harsh.")
+                    endIntent.putExtra("victory", false)
+                    startActivity(endIntent)
+                    finish()
+                }
                 adapter?.notifyItemChanged(requestCode - 400)
             }
         }

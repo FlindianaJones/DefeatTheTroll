@@ -100,6 +100,23 @@ class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
                     "directions",
                     "liopleurodon"
                 )
+            ),
+            Pair(
+                "Prequel Memes",
+                arrayOf(
+                    "general kenobi",
+                    "ironic",
+                    "not to me",
+                    "tragedy",
+                    "hate sand",
+                    "rank of master",
+                    "high ground",
+                    "podracing",
+                    "intelligent",
+                    "unnatural",
+                    "sequels suck",
+                    "two of them"
+                )
             )
         )
     }

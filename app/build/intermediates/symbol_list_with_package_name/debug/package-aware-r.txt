@@ -1164,6 +1164,8 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chat_msg_left_pad
+id chat_msg_right_pad
 id checkbox
 id checked
 id choice1
