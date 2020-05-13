@@ -1,0 +1,7 @@
+package com.example.defeatthetroll
+
+val MEME_REQUEST_CODE = 100
+val AXE_REQUEST_CODE = 200
+val QUEST_REQUEST_CODE = 300
+val LOVE_REQUEST_CODE = 400
+val SETTINGS_REQUEST_CODE = 500

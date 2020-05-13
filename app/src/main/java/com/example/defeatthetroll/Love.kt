@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
@@ -21,7 +22,7 @@ class Love : AppCompatActivity() {
         setContentView(R.layout.activity_love)
 
         if (trollLadyList.size == 0) {
-            trollLadyList = TrollLady.createTrollLadies(5)
+            trollLadyList = TrollLady.createTrollLadies(5, this)
         }
 
         find_love_btn.setOnClickListener {
@@ -44,38 +45,54 @@ class Love : AppCompatActivity() {
     fun loveProfileHandler(lovelyLady: TrollLady, position: Int) {
         Log.d("troll_view", "Viewing ${lovelyLady.name}")
         val profileIntent = Intent(this, LoveProfile::class.java)
+        //TODO: Don't be lazy, make this bundleable thingy
         profileIntent.putExtra("name", lovelyLady.name)
         profileIntent.putExtra("favorite", lovelyLady.favorite)
+        Log.d("troll_favorite", lovelyLady.favorite)
         profileIntent.putExtra("keywords", TrollLady.favorites[lovelyLady.favorite])
-        startActivityForResult(profileIntent, 400 + position)
+        profileIntent.putExtra("profile_pic", lovelyLady.profilePic)
+        profileIntent.putExtra("lady_pos", position)
+        startActivityForResult(profileIntent, LOVE_REQUEST_CODE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode in 400..499) {
-            val success = resultCode == Activity.RESULT_OK
-            if(success) {
-                val endIntent = Intent(this, End::class.java)
-                endIntent.putExtra("message", "Groo makes a successful love connection with ${trollLadyList[requestCode - 400].name}, and you defeat him. That's the POWER of love!")
-                endIntent.putExtra("victory", true)
-                startActivity(endIntent)
-                finish()
-            } else {
-                trollLadyList[requestCode-400].bitten = true
-                var allBitten = true
-                for(lady in trollLadyList) {
-                    allBitten = allBitten && lady.bitten
-                    if (!allBitten)
-                        break
-                }
-                if(allBitten){
+        if (requestCode == LOVE_REQUEST_CODE) {
+            val ladyPos = data?.getIntExtra("lady_pos", -1) ?: -1
+            if(ladyPos < 0){
+                val toast = Toast.makeText(this, "So that was some bad juju magumbo, not sure how you struck out with an imaginary lady.", Toast.LENGTH_LONG)
+                toast.show()
+                return
+            }
+            when(resultCode){
+                Activity.RESULT_OK -> {
                     val endIntent = Intent(this, End::class.java)
-                    endIntent.putExtra("message", "Having struck out with every lady in a 50 mile radius, Groo kills you with your own phone. Harsh.")
-                    endIntent.putExtra("victory", false)
+                    endIntent.putExtra("message", "Groo makes a successful love connection with ${trollLadyList[ladyPos].name}, and you defeat him. That's the POWER of love!")
+                    endIntent.putExtra("victory", true)
                     startActivity(endIntent)
                     finish()
                 }
-                adapter?.notifyItemChanged(requestCode - 400)
+                Activity.RESULT_FIRST_USER -> {
+                    val toast = Toast.makeText(this, "Didn't like the look of that one? Must be nice to have the luxury of pickiness...", Toast.LENGTH_LONG)
+                    toast.show()
+                }
+                Activity.RESULT_CANCELED -> {
+                    trollLadyList[ladyPos].bitten = true
+                    var allBitten = true
+                    for(lady in trollLadyList) {
+                        allBitten = allBitten && lady.bitten
+                        if (!allBitten)
+                            break
+                    }
+                    if(allBitten){
+                        val endIntent = Intent(this, End::class.java)
+                        endIntent.putExtra("message", "Having struck out with every lady in a 50 mile radius, Groo kills you with your own phone. Harsh.")
+                        endIntent.putExtra("victory", false)
+                        startActivity(endIntent)
+                        finish()
+                    }
+                    adapter?.notifyItemChanged(ladyPos)
+                }
             }
         }
     }

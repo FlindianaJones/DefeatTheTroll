@@ -1,43 +1,48 @@
 package com.example.defeatthetroll
 
+import android.content.Context
+import android.content.res.Resources
 import kotlin.math.roundToInt
 
-class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
+class TrollLady(val name: String, var bitten: Boolean, val favorite: String, val profilePic: String) {
 
+    //need Context passed around because otherwise for some reason it can't find the string arrays...
     companion object {
-        fun createTrollLadies(numContacts: Int): ArrayList<TrollLady> {
+        fun createTrollLadies(numContacts: Int, context: Context): ArrayList<TrollLady> {
             val contacts = ArrayList<TrollLady>()
             for (i in 1..numContacts) {
                 contacts.add(
                     TrollLady(
-                        randomName(),
+                        randomName(context),
                         false,
-                        randomFromList(favorites.keys.toTypedArray())
+                        randomFromList(R.array.favorites, context),
+                        randomFromList(R.array.profile_pics, context)
                     )
                 )
             }
             return contacts
         }
 
-        private fun randomName(): String {
-            val firstName = randomFromList(firstNames)
-            val lastName = randomFromList(lastnameFirstHalves) + randomFromList(lastnameSecondHalves)
+        private fun randomName(context: Context): String {
+            val firstName = randomFromList(R.array.first_name, context)
+            val lastName = randomFromList(R.array.last_name_begin, context) + randomFromList(R.array.last_name_end, context)
             return "$firstName $lastName"
         }
 
-        private fun randomFromList(list: Array<String>): String {
-            return list[(Math.random() * (list.size - 1)).roundToInt()]
+        private fun randomFromList(resourceId: Int, context: Context): String {
+            val resourceArray = context.resources.getStringArray(resourceId)
+            return resourceArray[(Math.random() * (resourceArray.size - 1)).roundToInt()]
         }
 
-        fun positiveResponse() : String {
-            return randomFromList(positiveResponses)
+        fun positiveResponse(context: Context) : String {
+            return randomFromList(R.array.positive_response, context)
         }
 
-        fun negativeResponse() : String {
-            return randomFromList(negativeResponses)
+        fun negativeResponse(context: Context) : String {
+            return randomFromList(R.array.negative_response, context)
         }
 
-        val favorites = hashMapOf<String, Array<String>>(
+        val favorites = hashMapOf(
             Pair(
                 "Battle",
                 arrayOf(
@@ -61,7 +66,7 @@ class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
                 )
             ),
             Pair(
-                "Long walks through the swamp",
+                "Long Swamp Walks",
                 arrayOf(
                     "mud",
                     "flower",
@@ -80,7 +85,7 @@ class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
                 )
             ),
             Pair(
-                "Rescuing princes",
+                "Rescuing Princes",
                 arrayOf(
                     "dragon",
                     "tower",
@@ -122,68 +127,3 @@ class TrollLady(val name: String, var bitten: Boolean, val favorite: String) {
     }
 
 }
-
-val firstNames = arrayOf(
-    "Mila",
-    "Natalia",
-    "Anastasia",
-    "Angelina",
-    "Lia",
-    "Vera",
-    "Angela",
-    "Nina",
-    "Kira",
-    "Nadia",
-    "Ivanna",
-    "Tatiana",
-    "Zariyah",
-    "Odessa"
-)
-val lastnameFirstHalves = arrayOf(
-    "Green",
-    "Strong",
-    "Smash",
-    "Stink",
-    "Swamp",
-    "Shrek",
-    "Vile",
-    "Verdis",
-    "Loud",
-    "Rage",
-    "Hard",
-    "Proud"
-)
-val lastnameSecondHalves = arrayOf(
-    "blood",
-    "hammer",
-    "mouth",
-    "breath",
-    "butt",
-    "donkey",
-    "tongue",
-    "man",
-    "shout",
-    "battle",
-    "hide",
-    "roar"
-)
-val positiveResponses = arrayOf(
-    "Ooh la la!",
-    "Tell me more!",
-    "My kind of guy!",
-    "No way, me too!",
-    "Oh really?",
-    "Nice!",
-    "Keep going, haha..."
-)
-
-val negativeResponses = arrayOf(
-    "Ugh, all men are the same.",
-    "What?!",
-    "I hope you die in a fire full of spiders and your least favorite food.",
-    "You sound like the last man whose head I put on my wall...",
-    "Oh no you DIDn't!",
-    "Thanks, I hate it",
-    "Unsubscribe",
-    "404 ERROR: Interest not found"
-)

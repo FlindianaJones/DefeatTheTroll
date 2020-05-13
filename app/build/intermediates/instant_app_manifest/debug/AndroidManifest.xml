@@ -20,6 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.defeatthetroll.SettingsActivity" />
         <activity android:name="com.example.defeatthetroll.LoveProfile" />
         <activity android:name="com.example.defeatthetroll.Love" />
         <activity android:name="com.example.defeatthetroll.QuestChoice" />

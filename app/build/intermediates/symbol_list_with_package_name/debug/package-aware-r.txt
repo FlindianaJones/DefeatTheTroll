@@ -41,6 +41,14 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array beast_types
+array favorites
+array first_name
+array last_name_begin
+array last_name_end
+array negative_response
+array positive_response
+array profile_pics
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1048,6 +1056,7 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable avd_hide_password
 drawable avd_show_password
+drawable branchette
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -1062,6 +1071,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ginger_troll
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_chip_checked_black
@@ -1082,9 +1092,10 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable profile_pic_1
+drawable poppy
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable trollette
 font fonts
 font immortal
 font immortal_lt
@@ -1155,11 +1166,13 @@ id attack_btn
 id auto
 id axe_btn
 id barrier
+id beast_type_spn
 id beginning
 id bite_btn
 id blocking
 id bottom
 id buttonPanel
+id cancel_love_btn
 id center
 id center_horizontal
 id center_vertical
@@ -1185,6 +1198,7 @@ id continue_btn
 id coordinator
 id custom
 id customPanel
+id dataBinding
 id decor_content_parent
 id default_activity_button
 id defend_btn
@@ -1223,7 +1237,6 @@ id icon
 id icon_group
 id ifRoom
 id image
-id imageView
 id info
 id invisible
 id italic
@@ -1263,6 +1276,8 @@ id notification_main_column
 id notification_main_column_container
 id off
 id on
+id onAttachStateChangeListener
+id onDateChanged
 id outline
 id output
 id packed
@@ -1275,12 +1290,14 @@ id percent
 id pin
 id play_again_btn
 id player_result_txt
+id profile_pic
 id progress_circular
 id progress_horizontal
 id promptResult
 id quest_btn
 id radio
 id result_txt
+id return_btn
 id right
 id right_icon
 id right_side
@@ -1307,6 +1324,7 @@ id select_dialog_listview
 id selected
 id selected_meme_img
 id send_message_btn
+id settings_btn
 id shortcut
 id showCustom
 id showHome
@@ -1347,7 +1365,9 @@ id textView
 id textView2
 id textView3
 id textView4
+id textView5
 id textView6
+id textWatcher
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1441,6 +1461,7 @@ layout activity_main
 layout activity_memes
 layout activity_quest
 layout activity_quest_choice
+layout activity_settings
 layout chat_message
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1472,7 +1493,6 @@ layout support_simple_spinner_dropdown_item
 layout troll_lady
 mipmap ic_launcher
 mipmap ic_launcher_round
-mipmap poppy
 navigation nav_graph
 string Continue_btn_txt
 string abc_action_bar_home_description
@@ -1509,6 +1529,7 @@ string attack_btn_txt
 string axe_btn_txt
 string axe_sel_prompt_txt
 string axe_splash_txt
+string beast_type_label
 string bite_btn_txt
 string bottom_sheet_behavior
 string character_counter_content_description
@@ -1547,8 +1568,10 @@ string peace_axe_btn_txt
 string play_again_btn_txt
 string quest_btn_txt
 string quest_prompt_txt
+string return_btn_txt
 string search_menu_title
 string send_btn_txt
+string settings_btn_desc
 string show_meme_btn_txt
 string splash_text
 string status_bar_notification_info_overflow

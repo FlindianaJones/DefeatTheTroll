@@ -1,0 +1,84 @@
+<resources>
+    <string-array name="beast_types">
+        <item>Troll</item>
+        <item>Gremlin</item>
+        <item>Orc</item>
+        <item>Your Subconscious</item>
+        <item>Poverty</item>
+    </string-array>
+    <string-array name="first_name">
+        <item>Mila</item>
+        <item>Natalia</item>
+        <item>Anastasia</item>
+        <item>Angelina</item>
+        <item>Lia</item>
+        <item>Vera</item>
+        <item>Angela</item>
+        <item>Nina</item>
+        <item>Kira</item>
+        <item>Nadia</item>
+        <item>Ivanna</item>
+        <item>Tatiana</item>
+        <item>Zariyah</item>
+        <item>Odessa</item>
+    </string-array>
+    <string-array name="last_name_begin">
+        <item>Green</item>
+        <item>Strong</item>
+        <item>Smash</item>
+        <item>Stink</item>
+        <item>Swamp</item>
+        <item>Shrek</item>
+        <item>Vile</item>
+        <item>Verdis</item>
+        <item>Loud</item>
+        <item>Rage</item>
+        <item>Hard</item>
+        <item>Proud</item>
+    </string-array>
+    <string-array name="last_name_end">
+        <item>blood</item>
+        <item>hammer</item>
+        <item>mouth</item>
+        <item>breath</item>
+        <item>butt</item>
+        <item>donkey</item>
+        <item>tongue</item>
+        <item>man</item>
+        <item>shout</item>
+        <item>battle</item>
+        <item>hide</item>
+        <item>roar</item>
+    </string-array>
+    <string-array name="positive_response">
+        <item>Ooh la la!</item>
+        <item>Tell me more!</item>
+        <item>My kind of guy!</item>
+        <item>No way, me too!</item>
+        <item>Oh really?</item>
+        <item>Nice!</item>
+        <item>Keep going, haha...</item>
+    </string-array>
+    <string-array name="negative_response">
+        <item>Ugh, all men are the same.</item>
+        <item>What?!</item>
+        <item>I hope you die in a fire full of spiders and your least favorite food.</item>
+        <item>You sound like the last man whose head I put on my wall...</item>
+        <item>Oh no you DIDn\'t!</item>
+        <item>Thanks, I hate it</item>
+        <item>Unsubscribe</item>
+        <item>404 ERROR: Interest not found</item>
+    </string-array>
+    <string-array name="profile_pics">
+        <item>poppy</item>
+        <item>ginger_troll</item>
+        <item>branchette</item>
+        <item>trollette</item>
+    </string-array>
+    <string-array name="favorites">
+        <item>Battle</item>
+        <item>Long Swamp Walks</item>
+        <item>Rescuing Princes</item>
+        <item>Prequel Memes</item>
+    </string-array>
+</resources>
