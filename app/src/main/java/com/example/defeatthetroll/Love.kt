@@ -7,7 +7,10 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.defeatthetroll.databinding.ActivityLoveBinding
+import com.example.defeatthetroll.databinding.ActivityMainBinding
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_love.*
 
@@ -19,7 +22,9 @@ class Love : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_love)
+        val binding: ActivityLoveBinding = DataBindingUtil.setContentView(this, R.layout.activity_love)
+        binding.setVariable(BR.selectedBeast, MainActivity.AppSettings)
+        binding.executePendingBindings()
 
         if (trollLadyList.size == 0) {
             trollLadyList = TrollLady.createTrollLadies(5, this)

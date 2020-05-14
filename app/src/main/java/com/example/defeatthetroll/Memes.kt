@@ -9,6 +9,9 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import com.example.defeatthetroll.MainActivity.Companion.AppSettings
+import com.example.defeatthetroll.databinding.ActivityMemesBinding
 import kotlinx.android.synthetic.main.activity_memes.*
 import kotlin.random.Random
 
@@ -19,7 +22,9 @@ class Memes : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_memes)
+        val binding: ActivityMemesBinding = DataBindingUtil.setContentView(this, R.layout.activity_memes)
+        binding.setVariable(BR.selectedBeast, AppSettings)
+        binding.executePendingBindings()
 
         show_meme_btn.setOnClickListener { openGallery() }
     }
@@ -41,7 +46,7 @@ class Memes : AppCompatActivity() {
                 return
             }
             if(memesTried.contains(imagePath))         {
-                result_txt.text = getText(R.string.duplicate_meme_txt)
+                result_txt.text = getString(R.string.duplicate_meme_txt, AppSettings.getSelectedBeast())
                 return
             }
             memesTried.add(imagePath)
@@ -49,16 +54,16 @@ class Memes : AppCompatActivity() {
             Log.d("memes.uploaded", "Got $damage from $imagePath")
             when {
                 damage > 40 -> {
-                    result_txt.text = getText(R.string.meme_high_dmg_txt)
+                    result_txt.text = getString(R.string.meme_high_dmg_txt, AppSettings.getSelectedBeast())
                     selected_meme_img.setColorFilter(Color.rgb(0, 128, 0), PorterDuff.Mode.ADD)
                 }
                 damage > 20 -> {
-                    result_txt.text = getText(R.string.meme_med_dmg_txt)
+                    result_txt.text = getString(R.string.meme_med_dmg_txt, AppSettings.getSelectedBeast())
                     selected_meme_img.setColorFilter(Color.rgb(0, 0, 128), PorterDuff.Mode.ADD)
                 }
-                damage > 0 -> result_txt.text = getText(R.string.meme_low_dmg_txt)
+                damage > 0 -> result_txt.text = getString(R.string.meme_low_dmg_txt, AppSettings.getSelectedBeast())
                 else -> {
-                    result_txt.text = getText(R.string.meme_negative_dmg_txt)
+                    result_txt.text = getString(R.string.meme_negative_dmg_txt, AppSettings.getSelectedBeast())
                     selected_meme_img.setColorFilter(Color.rgb(128, 0, 0), PorterDuff.Mode.ADD)
                 }
             }
@@ -68,7 +73,7 @@ class Memes : AppCompatActivity() {
                 val endIntent = Intent(this, End::class.java)
                 endIntent.putExtra(
                     "message",
-                    getText(R.string.meme_win_txt)
+                    getString(R.string.meme_win_txt, AppSettings.getSelectedBeast())
                 )
                 endIntent.putExtra("victory", true)
                 startActivity(endIntent)
@@ -79,7 +84,7 @@ class Memes : AppCompatActivity() {
                 val endIntent = Intent(this, End::class.java)
                 endIntent.putExtra(
                     "message",
-                    getText(R.string.meme_loss_txt)
+                    getString(R.string.meme_loss_txt, AppSettings.getSelectedBeast())
                 )
                 endIntent.putExtra("victory", false)
                 startActivity(endIntent)

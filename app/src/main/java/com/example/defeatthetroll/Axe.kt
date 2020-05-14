@@ -4,7 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import com.example.defeatthetroll.databinding.ActivityAxeBinding
 import kotlinx.android.synthetic.main.activity_axe.*
 
 class Axe : AppCompatActivity() {
@@ -18,7 +19,9 @@ class Axe : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_axe)
+        val binding: ActivityAxeBinding = DataBindingUtil.setContentView(this, R.layout.activity_axe)
+        binding.setVariable(BR.selectedBeast, MainActivity.AppSettings)
+        binding.executePendingBindings()
 
         troll = Troll(Weapon(10, 20, 0, 20, "Executioner Axe"), troll_result_txt)
         player = Player(Weapon(0, 0, 0, 0), player_result_txt)
@@ -38,7 +41,7 @@ class Axe : AppCompatActivity() {
             endIntent.putExtra("message", "Truly, you will inspire many a generation of adventurers with poor judgement! You triumph, and all sing your praises as you recover in the hospital.")
         } else if(player.hitpoints <= 0){
             endIntent.putExtra("victory", false)
-            endIntent.putExtra("message", "You are dork, and eaten by Groo the troll. Better luck next time old chap.")
+            endIntent.putExtra("message", "You are dork, and eaten by Groo the ${MainActivity.AppSettings.getSelectedBeast()}. Better luck next time old chap.")
         }
         if(troll.hitpoints <= 0 || player.hitpoints <= 0) {
             startActivity(endIntent)
@@ -114,7 +117,7 @@ class Axe : AppCompatActivity() {
         toggleViewVisibility(war_and_peace_axe_btn)
         toggleViewVisibility(attack_btn)
         toggleViewVisibility(defend_btn)
-        choice_prompt.text = getText(R.string.action_sel_prompt_txt)
+        choice_prompt.text = getString(R.string.action_sel_prompt_txt, MainActivity.AppSettings.getSelectedBeast())
     }
 
     fun toggleViewVisibility(view: View) {

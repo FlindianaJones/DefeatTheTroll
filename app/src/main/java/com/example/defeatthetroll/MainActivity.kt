@@ -1,5 +1,6 @@
 package com.example.defeatthetroll
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,16 +16,16 @@ class MainActivity : AppCompatActivity() {
         val AppSettings = Settings()
     }
 
-    lateinit var binding: ActivityMainBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        val sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+
+        AppSettings.setSelectedBeast(sharedPref.getString(getString(R.string.saved_beast_key), null) ?: getString(R.string.default_beast))
+
+        val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.setVariable(BR.selectedBeast, AppSettings)
         binding.executePendingBindings()
-
-        Log.d("troll_beast", AppSettings.getSelectedBeast())
 
         meme_btn.setOnClickListener {
             Log.d("btn_click", "Clicked meme")
@@ -52,15 +53,4 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
     }
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        when(requestCode){
-//            SETTINGS_REQUEST_CODE -> {
-//                Log.d("troll_beast", AppSettings.getSelectedBeast())
-//                binding.notifyPropertyChanged(BR.selectedBeast)
-//            }
-//        }
-//    }
 }

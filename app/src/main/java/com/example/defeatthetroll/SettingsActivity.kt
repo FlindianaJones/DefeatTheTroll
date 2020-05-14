@@ -1,5 +1,6 @@
 package com.example.defeatthetroll
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -34,8 +35,14 @@ class SettingsActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                Log.d("troll_beast", parent?.getItemAtPosition(position) as String)
-                MainActivity.AppSettings.setSelectedBeast(parent?.getItemAtPosition(position) as String)
+                val selection = parent?.getItemAtPosition(position) as String
+                MainActivity.AppSettings.setSelectedBeast(selection)
+                val sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
+
+                with (sharedPref.edit()) {
+                    putString(getString(R.string.saved_beast_key), selection)
+                    commit()
+                }
             }
 
         }

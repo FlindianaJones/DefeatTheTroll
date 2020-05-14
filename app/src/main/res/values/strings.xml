@@ -29,7 +29,7 @@
     <string name="Continue_btn_txt">Continue</string>
     <string name="keywords_prefix">Keywords:\n</string>
     <string name="love_btn_text">Love</string>
-    <string name="love_prompt">Erm.\nWell, okay, I guess I did offer it.\nYou pull out your phone and install the app \"Love at First Bite,\" the premier dating app for %1$s. After setting up a profile, you show the %1$s all the single Lady %1$ss in the area he can connect with. (Choose a %1$s lady below and try and connect!)</string>
+    <string name="love_prompt">Erm.\nWell, okay, I guess I did offer it.\nYou pull out your phone and install the app \"Love at First Bite,\" the premier dating app for %1$ss. After setting up a profile, you show the %1$s all the single Lady %1$ss in the area he can connect with. (Choose a %1$s lady below and try and connect!)</string>
     <string name="find_love_btn_txt">Go Find Love! &lt;3></string>
     <string name="name_label_txt">Name:</string>
     <string name="favorite_label_txt">Favorite Thing:</string>
@@ -39,4 +39,8 @@
     <string name="settings_btn_desc">Adjust Settings</string>
     <string name="beast_type_label">Select Beast Type:</string>
     <string name="return_btn_txt">Return</string>
+
+    <string name="default_beast">Troll</string>
+    <string name="preference_file_key">com.examle.defeatTheTroll.PREFERENCE_FILE</string>
+    <string name="saved_beast_key">selected_beast</string>
 </resources>

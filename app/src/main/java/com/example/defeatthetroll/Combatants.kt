@@ -58,9 +58,9 @@ class Player(wpn: Weapon?, output: TextView?) : Combatant(wpn, output) {
 
         val result = super.defend()
         if(result > 0) {
-            output!!.text = "As the trolls swings, you avoid becoming his next meal, blocking with your trusty ${weapon?.Name}"
+            output!!.text = "As the ${MainActivity.AppSettings.getSelectedBeast()} swings, you avoid becoming his next meal, blocking with your trusty ${weapon?.Name}"
         } else {
-            output!!.text = "As the trolls swings, your trusty ${weapon?.Name} lets you down; you're hit!"
+            output!!.text = "As the ${MainActivity.AppSettings.getSelectedBeast()} swings, your trusty ${weapon?.Name} lets you down; you're hit!"
         }
         return result
     }
@@ -83,10 +83,10 @@ class Troll(wpn: Weapon?, output: TextView?) : Combatant(wpn, output) {
         var result = super.attack()
         if(result > 0) {
             output!!.text =
-                "The troll swings his ${weapon?.Name}, predictably; you begin to regret this as he hits!"
+                "The ${MainActivity.AppSettings.getSelectedBeast()} swings his ${weapon?.Name}, predictably; you begin to regret this as he hits!"
         } else {
             output!!.text =
-                "The troll swings his ${weapon?.Name}, predictably; you feel lucky as he totally misses you."
+                "The ${MainActivity.AppSettings.getSelectedBeast()} swings his ${weapon?.Name}, predictably; you feel lucky as he totally misses you."
         }
         return result
     }
@@ -94,9 +94,9 @@ class Troll(wpn: Weapon?, output: TextView?) : Combatant(wpn, output) {
     override fun defend(): Int {
         var result = super.defend()
         if(result > 0) {
-            output!!.text = "The troll seems unusually cagey, how interesting; he defensively strikes back."
+            output!!.text = "The ${MainActivity.AppSettings.getSelectedBeast()} seems unusually cagey, how interesting; he defensively strikes back."
         }else {
-            output!!.text = "The troll seems unusually cagey, how interesting; he attempts to defend and fails."
+            output!!.text = "The ${MainActivity.AppSettings.getSelectedBeast()} seems unusually cagey, how interesting; he attempts to defend and fails."
         }
         return result
     }

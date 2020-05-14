@@ -1534,6 +1534,7 @@ string bite_btn_txt
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
+string default_beast
 string defeat_splash_txt
 string defend_btn_txt
 string duplicate_meme_txt
@@ -1566,9 +1567,11 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string peace_axe_btn_txt
 string play_again_btn_txt
+string preference_file_key
 string quest_btn_txt
 string quest_prompt_txt
 string return_btn_txt
+string saved_beast_key
 string search_menu_title
 string send_btn_txt
 string settings_btn_desc

@@ -6,7 +6,10 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.example.defeatthetroll.databinding.ActivityAxeBindingImpl;
+import com.example.defeatthetroll.databinding.ActivityLoveBindingImpl;
 import com.example.defeatthetroll.databinding.ActivityMainBindingImpl;
+import com.example.defeatthetroll.databinding.ActivityMemesBindingImpl;
 import java.lang.IllegalArgumentException;
 import java.lang.Integer;
 import java.lang.Object;
@@ -18,12 +21,21 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_ACTIVITYMAIN = 1;
+  private static final int LAYOUT_ACTIVITYAXE = 1;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(1);
+  private static final int LAYOUT_ACTIVITYLOVE = 2;
+
+  private static final int LAYOUT_ACTIVITYMAIN = 3;
+
+  private static final int LAYOUT_ACTIVITYMEMES = 4;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_axe, LAYOUT_ACTIVITYAXE);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_love, LAYOUT_ACTIVITYLOVE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_memes, LAYOUT_ACTIVITYMEMES);
   }
 
   @Override
@@ -35,11 +47,29 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ACTIVITYAXE: {
+          if ("layout/activity_axe_0".equals(tag)) {
+            return new ActivityAxeBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_axe is invalid. Received: " + tag);
+        }
+        case  LAYOUT_ACTIVITYLOVE: {
+          if ("layout/activity_love_0".equals(tag)) {
+            return new ActivityLoveBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_love is invalid. Received: " + tag);
+        }
         case  LAYOUT_ACTIVITYMAIN: {
           if ("layout/activity_main_0".equals(tag)) {
             return new ActivityMainBindingImpl(component, view);
           }
           throw new IllegalArgumentException("The tag for activity_main is invalid. Received: " + tag);
+        }
+        case  LAYOUT_ACTIVITYMEMES: {
+          if ("layout/activity_memes_0".equals(tag)) {
+            return new ActivityMemesBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_memes is invalid. Received: " + tag);
         }
       }
     }
@@ -95,10 +125,13 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(1);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
 
     static {
+      sKeys.put("layout/activity_axe_0", com.example.defeatthetroll.R.layout.activity_axe);
+      sKeys.put("layout/activity_love_0", com.example.defeatthetroll.R.layout.activity_love);
       sKeys.put("layout/activity_main_0", com.example.defeatthetroll.R.layout.activity_main);
+      sKeys.put("layout/activity_memes_0", com.example.defeatthetroll.R.layout.activity_memes);
     }
   }
 }

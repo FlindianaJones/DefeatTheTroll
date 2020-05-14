@@ -2,5 +2,17 @@
     {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_axe.xml",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_axe.xml"
+    },
+    {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_memes.xml",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_memes.xml"
+    },
+    {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_love.xml",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_love.xml"
     }
 ]
