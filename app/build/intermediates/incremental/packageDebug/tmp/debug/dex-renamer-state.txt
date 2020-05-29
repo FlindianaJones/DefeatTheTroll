@@ -1,7 +1,7 @@
-#Thu May 14 16:58:04 MDT 2020
-base.0=/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+#Fri May 29 17:13:55 MDT 2020
+base.0=/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
+base.1=/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/dex/debug/mergeProjectDexDebug/classes.dex

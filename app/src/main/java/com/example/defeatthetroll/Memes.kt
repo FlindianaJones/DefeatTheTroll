@@ -3,7 +3,6 @@ package com.example.defeatthetroll
 import android.app.Activity
 import android.content.Intent
 import android.graphics.Color
-import android.graphics.ColorFilter
 import android.graphics.PorterDuff
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +10,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import com.example.defeatthetroll.MainActivity.Companion.AppSettings
+import com.example.defeatthetroll.data.Troll
 import com.example.defeatthetroll.databinding.ActivityMemesBinding
 import kotlinx.android.synthetic.main.activity_memes.*
 import kotlin.random.Random
@@ -18,7 +18,15 @@ import kotlin.random.Random
 class Memes : AppCompatActivity() {
 
     var memesTried = mutableSetOf<String>()
-    var troll = Troll(Weapon(10, 20, 0, 20, "Executioner Axe"))
+    var troll = Troll(
+        Weapon(
+            10,
+            20,
+            0,
+            20,
+            "Executioner Axe"
+        )
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +48,7 @@ class Memes : AppCompatActivity() {
         if (resultCode == Activity.RESULT_OK) {
             selected_meme_img.colorFilter = null
             val imagePath = (data?.data as Uri).toString()
-            selected_meme_img.setImageURI(data?.data)
+            selected_meme_img.setImageURI(data.data)
             if (imagePath == "") {
                 result_txt.text = getText(R.string.generic_error)
                 return

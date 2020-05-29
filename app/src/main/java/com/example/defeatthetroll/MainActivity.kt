@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.databinding.DataBindingUtil
+import com.example.defeatthetroll.data.QuestDatabaseHandler
 import com.example.defeatthetroll.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
         AppSettings.setSelectedBeast(sharedPref.getString(getString(R.string.saved_beast_key), null) ?: getString(R.string.default_beast))
+        AppSettings.data.QuestNodes = QuestDatabaseHandler(this).readAllQuestNodes()
 
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         binding.setVariable(BR.selectedBeast, AppSettings)
@@ -49,7 +51,6 @@ class MainActivity : AppCompatActivity() {
 
         settings_btn.setOnClickListener {
             Log.d("btn_click", "Clicked settings")
-            //Maybe try calling this for result?
             startActivity(Intent(this, SettingsActivity::class.java))
         }
     }

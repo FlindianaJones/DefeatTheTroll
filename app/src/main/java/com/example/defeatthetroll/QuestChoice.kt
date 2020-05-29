@@ -4,6 +4,7 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.defeatthetroll.data.QuestNode
 import kotlinx.android.synthetic.main.activity_quest_choice.*
 
 class QuestChoice : AppCompatActivity() {

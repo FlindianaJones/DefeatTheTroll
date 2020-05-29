@@ -1,18 +1,15 @@
 package com.example.defeatthetroll
 
 import android.app.Activity
-import android.app.Instrumentation
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.defeatthetroll.data.TrollLady
 import kotlinx.android.synthetic.main.activity_love_profile.*
-import java.lang.Thread.sleep
 import java.util.*
-import kotlin.concurrent.schedule
 
 class LoveProfile : AppCompatActivity() {
     lateinit var keywords: Array<String>
@@ -36,9 +33,10 @@ class LoveProfile : AppCompatActivity() {
             else -> getDrawable(R.drawable.trollette)
         })
 
+        //This appears to be needed, almost as if the extras don't exist properly until observed...
         Log.d("troll_extra", intent.extras.toString())
 
-        keywords = intent.getStringArrayExtra("keywords")
+        keywords = intent.getStringArrayExtra("keywords") ?: arrayOf<String>()
 
 
         bite_btn.setOnClickListener {

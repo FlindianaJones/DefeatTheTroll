@@ -9,6 +9,8 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -24,7 +26,7 @@
         <activity android:name="com.example.defeatthetroll.LoveProfile" />
         <activity android:name="com.example.defeatthetroll.Love" />
         <activity android:name="com.example.defeatthetroll.QuestChoice" />
-        <activity android:name="com.example.defeatthetroll.Choice" />
+        <activity android:name="com.example.defeatthetroll.data.Choice" />
         <activity android:name="com.example.defeatthetroll.Quest" />
         <activity android:name="com.example.defeatthetroll.Axe" />
         <activity android:name="com.example.defeatthetroll.End" />

@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
+import com.example.defeatthetroll.data.Player
+import com.example.defeatthetroll.data.Troll
 import com.example.defeatthetroll.databinding.ActivityAxeBinding
 import kotlinx.android.synthetic.main.activity_axe.*
 
@@ -23,8 +25,19 @@ class Axe : AppCompatActivity() {
         binding.setVariable(BR.selectedBeast, MainActivity.AppSettings)
         binding.executePendingBindings()
 
-        troll = Troll(Weapon(10, 20, 0, 20, "Executioner Axe"), troll_result_txt)
-        player = Player(Weapon(0, 0, 0, 0), player_result_txt)
+        troll = Troll(
+            Weapon(
+                10,
+                20,
+                0,
+                20,
+                "Executioner Axe"
+            ), troll_result_txt
+        )
+        player = Player(
+            Weapon(0, 0, 0, 0),
+            player_result_txt
+        )
 
         war_axe_btn.setOnClickListener { lockSFoilsInAttackPosition(0) }
         peace_axe_btn.setOnClickListener { lockSFoilsInAttackPosition(1) }

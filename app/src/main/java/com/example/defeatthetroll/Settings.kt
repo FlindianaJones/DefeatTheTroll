@@ -2,9 +2,10 @@ package com.example.defeatthetroll
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
+import com.example.defeatthetroll.data.QuestNode
 
 class Settings : BaseObservable() {
-    val data = App("Troll")
+    val data = App("Troll", arrayOf())
 
     @Bindable
     fun getSelectedBeast() : String {
@@ -15,11 +16,9 @@ class Settings : BaseObservable() {
         if ( data.SelectedBeast != value) {
             data.SelectedBeast = value
 
-            //saveData()
-
             notifyPropertyChanged(BR.selectedBeast)
         }
     }
 }
 
-class App (var SelectedBeast: String)
+class App (var SelectedBeast: String, var QuestNodes: Array<QuestNode>)

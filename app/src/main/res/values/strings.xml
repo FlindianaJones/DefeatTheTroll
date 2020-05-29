@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Defeat The Troll</string>
     <string name="splash_text">Greetings, human! Come to do battle with a %1$s again, eh? How spiffing. Choose your method of %1$s defeat!</string>
     <string name="meme_btn_text">Memes</string>
@@ -14,7 +14,7 @@
     <string name="duplicate_meme_txt">You\'ve shown the %1$s that meme before; He\'s not impressed</string>
     <string name="meme_low_dmg_txt">You don\'t get the feeling the %1$s found that terribly funny…</string>
     <string name="meme_med_dmg_txt">The %1$s laughs, clearly appreciating your meme.</string>
-    <string name="meme_high_dmg_txt">The %1$s laughs and laughs, slapping it\'s knee. I guess you could call it a real...funny meme!</string>
+    <string name="meme_high_dmg_txt">The %1$s laughs and laughs, slapping it\'s knee. I guess you could call it a real…funny meme!</string>
     <string name="meme_negative_dmg_txt">The %1$s suddenly looks angry, and tells you to get back in your basement!</string>
     <string name="axe_splash_txt">You chose \"Axe\". As in, the thing the %1$s is most likely to kill you with. Okay Zoomer, let\'s see if you can end up dead here.</string>
     <string name="axe_sel_prompt_txt">Choose your axe:</string>
@@ -43,4 +43,6 @@
     <string name="default_beast">Troll</string>
     <string name="preference_file_key">com.examle.defeatTheTroll.PREFERENCE_FILE</string>
     <string name="saved_beast_key">selected_beast</string>
+    <string name="regen_quests_btn_txt">Regenerate Quests</string>
+    <string name="post_feedback_btn_txt">Post Feedback</string>
 </resources>

@@ -9,8 +9,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.defeatthetroll.data.TrollLady
 import com.example.defeatthetroll.databinding.ActivityLoveBinding
-import com.example.defeatthetroll.databinding.ActivityMainBinding
 import jp.wasabeef.recyclerview.animators.SlideInUpAnimator
 import kotlinx.android.synthetic.main.activity_love.*
 
