@@ -19,7 +19,13 @@ import java.lang.Object;
 
 public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
+  public final Button artBtn;
+
+  @NonNull
   public final Button axeBtn;
+
+  @NonNull
+  public final Button loginActivityBtn;
 
   @NonNull
   public final Button loveBtn;
@@ -36,19 +42,25 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   @NonNull
   public final TextView textView;
 
+  @NonNull
+  public final Button viewFeedbackBtn;
+
   @Bindable
   protected Settings mSelectedBeast;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button axeBtn, Button loveBtn, Button memeBtn, Button questBtn, ImageButton settingsBtn,
-      TextView textView) {
+      Button artBtn, Button axeBtn, Button loginActivityBtn, Button loveBtn, Button memeBtn,
+      Button questBtn, ImageButton settingsBtn, TextView textView, Button viewFeedbackBtn) {
     super(_bindingComponent, _root, _localFieldCount);
+    this.artBtn = artBtn;
     this.axeBtn = axeBtn;
+    this.loginActivityBtn = loginActivityBtn;
     this.loveBtn = loveBtn;
     this.memeBtn = memeBtn;
     this.questBtn = questBtn;
     this.settingsBtn = settingsBtn;
     this.textView = textView;
+    this.viewFeedbackBtn = viewFeedbackBtn;
   }
 
   public abstract void setSelectedBeast(@Nullable Settings selectedBeast);

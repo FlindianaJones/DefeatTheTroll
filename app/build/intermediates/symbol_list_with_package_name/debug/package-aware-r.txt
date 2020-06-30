@@ -1494,6 +1494,7 @@ id add
 id alertTitle
 id all
 id always
+id art_btn
 id async
 id attack_btn
 id auto
@@ -1551,6 +1552,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id downdoot_btn
 id dropdown_menu
 id edit_query
 id end
@@ -1562,6 +1564,15 @@ id expand_activities_button
 id expanded_menu
 id fade
 id favorite_txt
+id feedback_content
+id feedback_content_txt
+id feedback_item_content_txt
+id feedback_item_poster_txt
+id feedback_item_title_txt
+id feedback_list
+id feedback_rating_txt
+id feedback_title
+id feedback_title_txt
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1575,6 +1586,7 @@ id fragment_container_view_tag
 id ghost_view
 id ghost_view_holder
 id gone
+id grant_btn
 id group_divider
 id groups
 id hideable
@@ -1594,8 +1606,13 @@ id largeLabel
 id left
 id line1
 id line3
+id linearLayout
 id listMode
 id list_item
+id login_activity_btn
+id login_btn
+id login_password_txt
+id login_username_txt
 id love_btn
 id love_list
 id love_profile_top_cont
@@ -1673,6 +1690,7 @@ id promptResult
 id quest_btn
 id radio
 id regen_quests_btn
+id remember_me_chk
 id result_txt
 id return_btn
 id right
@@ -1750,6 +1768,8 @@ id textView3
 id textView4
 id textView5
 id textView6
+id textView7
+id textView8
 id textWatcher
 id text_input_end_icon
 id text_input_start_icon
@@ -1773,8 +1793,10 @@ id unchecked
 id uniform
 id unlabeled
 id up
+id updoot_btn
 id useLogo
 id victory_msg_txt
+id view_feedback_btn
 id view_offset_helper
 id view_troll_lady_btn
 id visible
@@ -1845,8 +1867,10 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_art
 layout activity_axe
 layout activity_end
+layout activity_login
 layout activity_love
 layout activity_love_profile
 layout activity_main
@@ -1854,6 +1878,7 @@ layout activity_memes
 layout activity_quest
 layout activity_quest_choice
 layout activity_settings
+layout activity_view_feedback
 layout chat_message
 layout custom_dialog
 layout design_bottom_navigation_item
@@ -1871,6 +1896,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout feedback_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
 layout mtrl_alert_dialog_title
@@ -1957,6 +1983,8 @@ string abc_toolbar_collapse_description
 string action_sel_prompt_txt
 string app_name
 string appbar_scrolling_view_behavior
+string art_btn_txt
+string art_prompt_txt
 string attack_btn_txt
 string axe_btn_txt
 string axe_sel_prompt_txt
@@ -1978,11 +2006,19 @@ string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string favorite_label_txt
+string feedback_content_txt
+string feedback_rating_txt
+string feedback_title_txt
 string find_love_btn_txt
 string generic_error
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string keywords_prefix
+string login_btn_txt
+string login_internal_error
+string login_name_hint
+string login_password_hint
+string login_splash_txt
 string love_btn_text
 string love_prompt
 string meme_btn_text
@@ -2043,7 +2079,9 @@ string preference_file_key
 string quest_btn_txt
 string quest_prompt_txt
 string regen_quests_btn_txt
+string remember_me_chk_txt
 string return_btn_txt
+string saved_auth_key
 string saved_beast_key
 string search_menu_title
 string send_btn_txt
@@ -2052,6 +2090,7 @@ string show_meme_btn_txt
 string splash_text
 string status_bar_notification_info_overflow
 string victory_splash_txt
+string view_feedback_btn_txt
 string war_and_peace_axe_btn_txt
 string war_axe_btn_txt
 style AlertDialog_AppCompat

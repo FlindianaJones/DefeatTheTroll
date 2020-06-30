@@ -24,16 +24,5 @@ val CHOICE_KEY_KEYWORD = "keyword"
 val CHOICE_KEY_RESULT = "result"
 val CHOICE_KEY_NEXT = "next_node_id"
 
-/*
-QuestNode:
--Id (Int, manual)
--Prompt (String)
-Choice:
--Id (Int, automatic)
--NodeId (Int, FK)
--Key (String)
--Label (String)
--Keyword (String)
--Result (String)
--Next (Int, FK)
-*/
+//~~    API Constants
+val BASE_API_URL = "https://troll-defeat-api.herokuapp.com/"

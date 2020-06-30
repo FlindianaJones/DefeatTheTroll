@@ -8,25 +8,16 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.android.volley.Request
-import com.android.volley.Response
-import com.android.volley.toolbox.StringRequest
-import com.android.volley.toolbox.Volley
-import com.example.defeatthetroll.data.ApiService
-import com.example.defeatthetroll.data.QuestDatabaseHandler
+import com.example.defeatthetroll.data.*
 import kotlinx.android.synthetic.main.activity_settings.*
-import okhttp3.*
+import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
+import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
-import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
 import java.lang.Exception
-import java.nio.Buffer
-import java.nio.CharBuffer
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -74,64 +65,83 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         post_feedback_btn.setOnClickListener {
-            /*The Retrofit way of doing things*/
+            if (feedback_content.visibility != View.VISIBLE) {
+                feedback_content_txt.visibility = View.VISIBLE
+                feedback_content.visibility = View.VISIBLE
+                feedback_title.visibility = View.VISIBLE
+                feedback_title_txt.visibility = View.VISIBLE
+            } else {
+                val retrofit = Retrofit.Builder()
+                    .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
+                    .addConverterFactory(ScalarsConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .baseUrl(BASE_API_URL)
+                    .build()
+
+                val trollDefeatAPI = retrofit.create(ApiService::class.java)
+
+                //the three final values don't matter, as they're defaulted, but I don't want two separate objects for posting/reading feedbacks
+                val postFeedbackReq = trollDefeatAPI.feedback(Feedback(feedback_title.text.toString(), feedback_content.text.toString()))
+
+                postFeedbackReq.enqueue(object: Callback<CreatedResponse>{
+                    override fun onFailure(call: Call<CreatedResponse>, t: Throwable) {
+                        showToast("Something went wrong trying to post that feedback, try again soon?")
+                        Log.d("troll_network", "Oh no! ${t.message}")
+                    }
+
+                    override fun onResponse(call: Call<CreatedResponse>, response: Response<CreatedResponse>) {
+                        if(!response.isSuccessful) {
+                            Log.d("troll_network", "${response.code()}: ${response.errorBody()?.string()}")
+                            if(response.code() >= 500) {
+                                showToast("Something went wrong trying to post that feedback, try again soon?")
+                            } else {
+                                showToast("Bad request trying to post that feedback, try logging back in?")
+                            }
+                            return
+                        }
+                        if(response.body() == null)
+                            return
+                        Log.d("troll_network", response.body()?.toString())
+
+                        feedback_content_txt.visibility = View.INVISIBLE
+                        feedback_content.visibility = View.INVISIBLE
+                        feedback_title.visibility = View.INVISIBLE
+                        feedback_title_txt.visibility = View.INVISIBLE
+                        feedback_content.setText("")
+                        feedback_title.setText("")
+                    }
+                })
+            }
+        }
+
+        grant_btn.setOnClickListener {
             val retrofit = Retrofit.Builder()
+                .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
                 .addConverterFactory(ScalarsConverterFactory.create())
-                //.addConverterFactory(GsonConverterFactory.create())
-                .baseUrl("https://troll-defeat-api.herokuapp.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .baseUrl("http://amadensor.dyndns.org/~grant/aau/swsf/")
                 .build()
 
             val trollDefeatAPI = retrofit.create(ApiService::class.java)
 
-            val req = trollDefeatAPI.ping()
-            val res = req.enqueue(object: Callback<String> {
-                override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.d("troll_network", t.message)
+            val grantReq = trollDefeatAPI.grant(mapOf(Pair("service_request", "{ \"user\": \"2\",\"service\": \"test\",\"action\": \"get\",\"session_key\": \"na\"}")))//GrantRequest(2, "test", "get", "na"))
+
+            grantReq.enqueue(object: Callback<GrantResponse> {
+                override fun onFailure(call: Call<GrantResponse>, t: Throwable) {
+                    Log.d("troll_grant", "Oh no! ${t.message}")
                 }
 
-                override fun onResponse(call: Call<String>, response: retrofit2.Response<String>) {
-                    Log.d("troll_network", response.body())
+                override fun onResponse(
+                    call: Call<GrantResponse>,
+                    response: Response<GrantResponse>
+                ) {
+                    if(response.body() == null){
+                        Log.d("troll_grant", "NULL! ${response.toString()}")
+                    } else {
+                        Log.d("troll_grant", "Lookie here! ${response.body().toString()}")
+                    }
                 }
             })
-
-
-            /*The Volley way of doing things
-            // Instantiate the RequestQueue.
-            val queue = Volley.newRequestQueue(this)
-            val url = "https://troll-defeat-api.herokuapp.com/feedback/ping"
-
-            // Request a string response from the provided URL.
-            val stringRequest = StringRequest(
-                Request.Method.GET, url,
-                Response.Listener { response ->
-                    Log.d("troll_network", "Response is: $response")
-                },
-                Response.ErrorListener { response -> Log.d("troll_network", "Oh no! $response") })
-
-            // Add the request to the RequestQueue.
-            queue.add(stringRequest)*/
-
-            /* The raw OkHttpClient way of doing things
-            val client = OkHttpClient()
-
-            fun getRequest(url: String): Request = Request.Builder()
-                .url(url)
-                .build()
-
-
-            client.newCall(getRequest("https://troll-defeat-api.herokuapp.com/feedback/ping"))
-                .enqueue(object : Callback {
-                    override fun onFailure(call: Call, e: IOException) {
-                        Log.d("troll_network", e.message)
-                    }
-
-                    override fun onResponse(call: Call, response: Response) {
-                        val content = response.body()?.byteStream()?.bufferedReader()?.use(BufferedReader::readText)
-
-                        Log.d("troll_network", content)
-                    }
-                })
-            */
         }
 
         regen_quests_btn.setOnClickListener {
@@ -159,6 +169,16 @@ class SettingsActivity : AppCompatActivity() {
                 toast.show()
             }
 
+        }
+    }
+
+    fun showToast(toast: String?) {
+        runOnUiThread {
+            Toast.makeText(
+                this@SettingsActivity,
+                toast,
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 }

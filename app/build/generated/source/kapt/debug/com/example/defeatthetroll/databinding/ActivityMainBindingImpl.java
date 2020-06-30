@@ -19,6 +19,9 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.quest_btn, 4);
         sViewsWithIds.put(R.id.love_btn, 5);
         sViewsWithIds.put(R.id.settings_btn, 6);
+        sViewsWithIds.put(R.id.view_feedback_btn, 7);
+        sViewsWithIds.put(R.id.login_activity_btn, 8);
+        sViewsWithIds.put(R.id.art_btn, 9);
     }
     // views
     @NonNull
@@ -29,16 +32,19 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 7, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
+            , (android.widget.Button) bindings[9]
             , (android.widget.Button) bindings[3]
+            , (android.widget.Button) bindings[8]
             , (android.widget.Button) bindings[5]
             , (android.widget.Button) bindings[2]
             , (android.widget.Button) bindings[4]
             , (android.widget.ImageButton) bindings[6]
             , (android.widget.TextView) bindings[1]
+            , (android.widget.Button) bindings[7]
             );
         this.mboundView0 = (androidx.constraintlayout.widget.ConstraintLayout) bindings[0];
         this.mboundView0.setTag(null);
@@ -119,8 +125,8 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             dirtyFlags = mDirtyFlags;
             mDirtyFlags = 0;
         }
-        com.example.defeatthetroll.Settings selectedBeast = mSelectedBeast;
         java.lang.String textViewAndroidStringSplashTextSelectedBeastSelectedBeast = null;
+        com.example.defeatthetroll.Settings selectedBeast = mSelectedBeast;
         java.lang.String selectedBeastSelectedBeast = null;
 
         if ((dirtyFlags & 0x7L) != 0) {

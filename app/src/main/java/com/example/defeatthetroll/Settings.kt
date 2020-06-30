@@ -5,7 +5,7 @@ import androidx.databinding.Bindable
 import com.example.defeatthetroll.data.QuestNode
 
 class Settings : BaseObservable() {
-    val data = App("Troll", arrayOf())
+    val data = App("Troll", arrayOf(), null)
 
     @Bindable
     fun getSelectedBeast() : String {
@@ -21,4 +21,4 @@ class Settings : BaseObservable() {
     }
 }
 
-class App (var SelectedBeast: String, var QuestNodes: Array<QuestNode>)
+class App (var SelectedBeast: String, var QuestNodes: Array<QuestNode>, var AuthToken: String?)

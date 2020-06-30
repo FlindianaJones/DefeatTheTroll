@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="23"
+        android:minSdkVersion="28"
         android:targetSdkVersion="29" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.defeatthetroll.Art" />
+        <activity android:name="com.example.defeatthetroll.Login" />
+        <activity android:name="com.example.defeatthetroll.ViewFeedback" />
         <activity android:name="com.example.defeatthetroll.SettingsActivity" />
         <activity android:name="com.example.defeatthetroll.LoveProfile" />
         <activity android:name="com.example.defeatthetroll.Love" />

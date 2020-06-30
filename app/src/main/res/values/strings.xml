@@ -39,10 +39,23 @@
     <string name="settings_btn_desc">Adjust Settings</string>
     <string name="beast_type_label">Select Beast Type:</string>
     <string name="return_btn_txt">Return</string>
+    <string name="feedback_rating_txt">Rating: %1$d</string>
+    <string name="login_internal_error">Something went wrong while trying to login, try again soon?</string>
 
     <string name="default_beast">Troll</string>
     <string name="preference_file_key">com.examle.defeatTheTroll.PREFERENCE_FILE</string>
     <string name="saved_beast_key">selected_beast</string>
+    <string name="saved_auth_key">saved_auth</string>
     <string name="regen_quests_btn_txt">Regenerate Quests</string>
     <string name="post_feedback_btn_txt">Post Feedback</string>
+    <string name="view_feedback_btn_txt">View Feedback</string>
+    <string name="feedback_title_txt">Title:</string>
+    <string name="feedback_content_txt">Content:</string>
+    <string name="login_splash_txt">Greetings, human! Log in to post and view feedback, and maybe unlock additional magic!</string>
+    <string name="login_name_hint">Email Address</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_btn_txt">Login</string>
+    <string name="remember_me_chk_txt">Remember Me</string>
+    <string name="art_btn_txt">Art</string>
+    <string name="art_prompt_txt">Draw something!</string>
 </resources>
