@@ -8,6 +8,10 @@
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_axe.xml"
     },
     {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_art.xml",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_art.xml"
+    },
+    {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_memes.xml",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_memes.xml"
     },

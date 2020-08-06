@@ -1,7 +1,8 @@
 package com.example.defeatthetroll.shapes
 
-import kotlin.math.round
-import kotlin.math.sqrt
+import android.graphics.Point
+import android.util.Log
+import kotlin.math.*
 
 // "From Right" in this case means the rightmost point, or: angle 0
 fun normalizeFromRightCW(pathApproximation: FloatArray, startX: Float, startY: Float): MutableList<PathPoint> {
@@ -53,3 +54,78 @@ private fun translatePercentage(basePercent: Double, direction: Int, currentPerc
     }
     return retVal
 }
+
+fun detectShape(drawing: MutableList<PathPoint>) {
+    var corners = 0
+    var sideLengths = mutableListOf<Float>()
+
+    var currentLength = 0f
+    var currentDirection = Vector(0f, 0f)//add to the x/y with every point until we decide we're on a corner
+
+    //do this, and the weird for loop, to avoid some weirdness with the first point
+    var oldX = drawing[0].x
+    var oldY = drawing[0].y
+
+    for(point in drawing.subList(1, drawing.size -1)){
+        val newDirection = Vector(point.x - oldX, point.y - oldY)
+        Log.d("troll_shape_detect", "c: $currentDirection, n: $newDirection")
+        //do some checking
+        if(currentDirection.xComponent >= 0 && currentDirection.yComponent >= 0){
+            currentLength += sqrt((oldX - point.x) * (oldX - point.x) + (oldY - point.y) * (oldY - point.y))
+            val diff = newDirection.distanceBetween(currentDirection)
+            if(abs(diff) > PI / 4f) {
+                //add this to the corner collection, then reset our current direction
+                corners++
+                currentDirection = Vector(0f, 0f)
+                sideLengths.add(currentLength)
+                currentLength = 0f
+            } else {
+                Log.d("troll_shape_detect", "$diff > ${PI / 4f}")
+            }
+        }
+        currentDirection.add(newDirection)
+        oldX = point.x
+        oldY = point.y
+    }
+    sideLengths.add(currentLength)
+    Log.d("troll_shape_detect", "Sides: $sideLengths, corners: $corners")
+}
+
+private class Vector(var xComponent: Float, var yComponent: Float){
+    fun distanceBetween(comparator: Vector): Float {
+        return atan(yComponent/xComponent)-atan(comparator.yComponent/comparator.xComponent)
+    }
+
+    fun add(toAdd: Vector) {
+        xComponent += toAdd.xComponent
+        yComponent += toAdd.yComponent
+    }
+
+    override fun toString(): String {
+        return "(${round(xComponent)}, ${round(yComponent)})"
+    }
+}
+
+/*
+Log.d("troll_shape_detect", "old: ($oldX, $oldY) new: (${point.x}, ${point.y}) currentDirection: $currentDirection")
+        if(oldX >= 0 && oldY >= 0){
+            if(currentDirection.xComponent >= 0 && currentDirection.yComponent >= 0) {
+                //Then, finally having our current direction we start trying to find corners
+                currentLength += sqrt((oldX - point.x) * (oldX - point.x) + (oldY - point.y) * (oldY - point.y))
+                val newDirection = Vector(point.x - oldX, point.y - oldY)
+                Log.d("troll_shape_detect", "newDirection: $newDirection")
+                Log.d(
+                    "troll_shape_detect",
+                    "${round(point.position * 100)}%: $newDirection is ${newDirection.distanceBetween(
+                        currentDirection
+                    )} different from $currentDirection"
+                )
+            }
+            //the second time through, with an old point but no current direction, we set the current heading
+            currentDirection.xComponent += point.x - oldX
+            currentDirection.yComponent += point.y - oldY
+        }
+        //so the first time through the loop, we just set our old position
+        oldX = point.x
+        oldY = point.y
+ */

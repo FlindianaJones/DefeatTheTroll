@@ -1,42 +1,67 @@
 package com.example.defeatthetroll.shapes
 
+import android.graphics.Canvas
+import android.graphics.Paint
 import android.util.Log
-import kotlin.math.PI
-import kotlin.math.cos
-import kotlin.math.sin
-import kotlin.math.sqrt
+import kotlin.math.*
 
-class Circle(override var CenterX: Float,
-             override var CenterY: Float,
-             val Radius: Double): Shape {
+class Circle(
+    x: Float,
+    y: Float,
+    val Radius: Double
+) : Shape(2 * Radius * PI, x, y, Radius.toFloat()) {
 
-    override var TotalLength: Double = 2 * Radius * PI
-
-    override fun GradeDrawing(drawing: MutableList<PathPoint>): Double {
-        var cumulativeGradDif = 0.0
+    override fun GradeDrawing(drawing: MutableList<PathPoint>, time: Long): Double {
+        var cumulativeRadiusGrade = 0.0
+        var cumulativeRoundnessGrade = 0.0
         var drawnLength = 0.0
         var oldX = -1f
         var oldY = -1f
         for (point in drawing) {
-            val idealAngle = point.position * 2.0 * PI //RADIANS, not degrees. sheesh.
-            val idealX = CenterX + cos(idealAngle) * Radius
-            val idealY = CenterY + sin(idealAngle) * Radius
+            val angleToIdealPoint = point.position * 2.0 * PI //RADIANS, not degrees. sheesh.
+            val idealX = CenterX + cos(angleToIdealPoint) * Radius
+            val idealY = CenterY + sin(angleToIdealPoint) * Radius
+
             val dist =
                 sqrt((point.x - idealX) * (point.x - idealX) + (point.y - idealY) * (point.y - idealY))
-            val pointGrade = Radius / (Radius + dist)
-
-            cumulativeGradDif += pointGrade
+            val pointRadiusGrade = Radius / (Radius + dist)
+            cumulativeRadiusGrade += pointRadiusGrade
 
             //Obviously, the first point would be problematic
-            if(oldX > 0 && oldY > 0){
-                drawnLength += sqrt((point.x - oldX) * (point.x - oldX) + (point.y - oldY) * (point.y - oldY))
+            if (oldX > 0 && oldY > 0) {
+                val difY = point.y - oldY
+                val difX = point.x - oldX
+                drawnLength += sqrt(difX * difX + difY * difY)
+
+                var drawnAngle = if (oldX >= 0 && oldY >= 0) {
+                    GetAngleFromVector(difX, difY)
+                } else {
+                    9001f
+                }
+                var idealAngle = angleToIdealPoint + PI / 2
+                if(idealAngle >= 2 * PI){
+                    idealAngle -= 2 * PI.toFloat()
+                }
+                cumulativeRoundnessGrade += GradeAngle(idealAngle.toFloat(), drawnAngle)
             }
             oldX = point.x
             oldY = point.y
         }
         //thus, the closer you are to having drawn the right length, the better
-        val lengthGrade = if(drawnLength > TotalLength) { TotalLength / drawnLength} else {drawnLength / TotalLength}
-        Log.d("troll_art", "Ideal Length: $TotalLength, Actual: $drawnLength")
-        return (cumulativeGradDif / drawing.size) * lengthGrade
+        val lengthGrade = if (drawnLength > TotalLength) {
+            TotalLength / drawnLength
+        } else {
+            drawnLength / TotalLength
+        }
+        return min(//average the radius/roundness grade, so you're graded higher for drawing a really good circle with a constantly wrong radius
+            ((cumulativeRadiusGrade+cumulativeRadiusGrade) / (drawing.size*2)) * lengthGrade * min(
+                (3000f / time),
+                1.25f
+            ), 1.0
+        )
+    }
+
+    override fun Draw(canvas: Canvas, brush: Paint) {
+        canvas.drawCircle(CenterX, CenterY, Radius.toFloat(), brush)
     }
 }

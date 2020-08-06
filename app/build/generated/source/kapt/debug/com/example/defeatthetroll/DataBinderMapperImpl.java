@@ -6,6 +6,7 @@ import android.view.View;
 import androidx.databinding.DataBinderMapper;
 import androidx.databinding.DataBindingComponent;
 import androidx.databinding.ViewDataBinding;
+import com.example.defeatthetroll.databinding.ActivityArtBindingImpl;
 import com.example.defeatthetroll.databinding.ActivityAxeBindingImpl;
 import com.example.defeatthetroll.databinding.ActivityLoveBindingImpl;
 import com.example.defeatthetroll.databinding.ActivityMainBindingImpl;
@@ -21,17 +22,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class DataBinderMapperImpl extends DataBinderMapper {
-  private static final int LAYOUT_ACTIVITYAXE = 1;
+  private static final int LAYOUT_ACTIVITYART = 1;
 
-  private static final int LAYOUT_ACTIVITYLOVE = 2;
+  private static final int LAYOUT_ACTIVITYAXE = 2;
 
-  private static final int LAYOUT_ACTIVITYMAIN = 3;
+  private static final int LAYOUT_ACTIVITYLOVE = 3;
 
-  private static final int LAYOUT_ACTIVITYMEMES = 4;
+  private static final int LAYOUT_ACTIVITYMAIN = 4;
 
-  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(4);
+  private static final int LAYOUT_ACTIVITYMEMES = 5;
+
+  private static final SparseIntArray INTERNAL_LAYOUT_ID_LOOKUP = new SparseIntArray(5);
 
   static {
+    INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_art, LAYOUT_ACTIVITYART);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_axe, LAYOUT_ACTIVITYAXE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_love, LAYOUT_ACTIVITYLOVE);
     INTERNAL_LAYOUT_ID_LOOKUP.put(com.example.defeatthetroll.R.layout.activity_main, LAYOUT_ACTIVITYMAIN);
@@ -47,6 +51,12 @@ public class DataBinderMapperImpl extends DataBinderMapper {
         throw new RuntimeException("view must have a tag");
       }
       switch(localizedLayoutId) {
+        case  LAYOUT_ACTIVITYART: {
+          if ("layout/activity_art_0".equals(tag)) {
+            return new ActivityArtBindingImpl(component, view);
+          }
+          throw new IllegalArgumentException("The tag for activity_art is invalid. Received: " + tag);
+        }
         case  LAYOUT_ACTIVITYAXE: {
           if ("layout/activity_axe_0".equals(tag)) {
             return new ActivityAxeBindingImpl(component, view);
@@ -125,9 +135,10 @@ public class DataBinderMapperImpl extends DataBinderMapper {
   }
 
   private static class InnerLayoutIdLookup {
-    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(4);
+    static final HashMap<String, Integer> sKeys = new HashMap<String, Integer>(5);
 
     static {
+      sKeys.put("layout/activity_art_0", com.example.defeatthetroll.R.layout.activity_art);
       sKeys.put("layout/activity_axe_0", com.example.defeatthetroll.R.layout.activity_axe);
       sKeys.put("layout/activity_love_0", com.example.defeatthetroll.R.layout.activity_love);
       sKeys.put("layout/activity_main_0", com.example.defeatthetroll.R.layout.activity_main);

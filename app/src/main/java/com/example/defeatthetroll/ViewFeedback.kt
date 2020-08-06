@@ -35,7 +35,7 @@ class ViewFeedback : AppCompatActivity() {
 
         dootReq.enqueue(object: Callback<String>{
             override fun onFailure(call: Call<String>, t: Throwable) {
-                Log.d("troll_network", t.message)
+                Log.d("troll_network", t.message ?: "something unspecified went wrong...")
                 if(up){
                     showToast("Failed to updoot, so sorry!")
                 } else {
@@ -95,7 +95,7 @@ class ViewFeedback : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<Array<Feedback>>, t: Throwable) {
-                Log.d("troll_network", t.message)
+                Log.d("troll_network", t.message ?: "something unspecified went wrong...")
                 showToast("Failed to fetch Feedback, sorry!")
             }
         })

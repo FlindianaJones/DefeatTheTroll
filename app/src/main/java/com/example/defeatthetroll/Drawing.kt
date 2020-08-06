@@ -2,12 +2,9 @@ package com.example.defeatthetroll
 
 import android.content.Context
 import android.graphics.*
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import com.example.defeatthetroll.shapes.Circle
-import com.example.defeatthetroll.shapes.Square
-import com.example.defeatthetroll.shapes.normalizeFromRightCW
+import com.example.defeatthetroll.shapes.*
 import kotlin.math.*
 
 class Drawing(context: Context?) : View(context) {
@@ -18,6 +15,12 @@ class Drawing(context: Context?) : View(context) {
     private lateinit var canvas: Canvas
     private var scribble = Path()
     private lateinit var cBitmap: Bitmap // the "c" stands for "canvas"
+    private var trollScore = 0.0
+    private var playerScore = 0.0
+    private var tries = 0
+    private var oldShape = -1
+    private var trollGrades = arrayOf(0.0, 0.0, 0.0)
+    var Victory: Boolean? = null
 
     private var oldX = 0f
     private var oldY = 0f
@@ -25,8 +28,11 @@ class Drawing(context: Context?) : View(context) {
 
     private val TOUCH_TOLERANCE = 4f
 
-    private lateinit var requestedCircle: Circle
-    private lateinit var requestedSquare: Square
+    private lateinit var requestedShape: Shape
+
+    private var startTime: Long = 0
+
+    private lateinit var handler: () -> Unit
 
     init {
         playerBrush.color = Color.BLUE
@@ -40,37 +46,32 @@ class Drawing(context: Context?) : View(context) {
 
         textBrush.color = Color.BLACK
         textBrush.textSize = 48f
+
+        for (i in 0..2) {
+            val grade = .7 + (Math.random() * 0.3)
+            trollGrades[i] = grade
+            trollScore += grade
+        }
     }
 
     override fun draw(c: Canvas?) {
         c!!.save()
 
-        if (!this::requestedCircle.isInitialized) {
-            requestedCircle =
-                Circle(measuredWidth / 2f, measuredHeight / 2f, measuredWidth * 0.75 * 0.5)
-        }
-
-        if (!this::requestedSquare.isInitialized) {
-            requestedSquare = Square(measuredWidth / 2f, measuredHeight / 2f, measuredWidth * 0.75)
-        }
-
         cBitmap = Bitmap.createBitmap(measuredWidth, measuredHeight, Bitmap.Config.ARGB_8888)
         canvas = Canvas(cBitmap)
 
         canvas.drawColor(Color.WHITE) // the background color
-        //canvas.drawCircle(measuredWidth / 2f, measuredHeight / 2f, requestedCircle.Radius.toFloat(), templateBrush)
-        canvas.drawRect(
-            measuredWidth / 2f - requestedSquare.SideLength.toFloat() / 2f,
-            measuredHeight / 2f - requestedSquare.SideLength.toFloat() / 2f,
-            measuredWidth / 2 + requestedSquare.SideLength.toFloat() / 2,
-            measuredHeight / 2 + requestedSquare.SideLength.toFloat() / 2,
-            templateBrush
-        )
+
+        if (!this::requestedShape.isInitialized) {
+            getNewShape()
+        }
+
+        requestedShape.Draw(canvas, templateBrush)
         canvas.drawPath(scribble, playerBrush)
         if (grade > 0) {
             canvas.drawText(
-                "${round(grade * 100)}%",
-                measuredWidth / 2f,
+                "Your grade: ${round(grade * 100)}% Troll's Grade: ${round(trollGrades[tries-1] * 100)}%",
+                measuredWidth / 8f,
                 measuredHeight - 24f,
                 textBrush
             )
@@ -90,6 +91,7 @@ class Drawing(context: Context?) : View(context) {
 
         oldX = x
         oldY = y
+        startTime = System.currentTimeMillis()
     }
 
     private fun touchMove(x: Float, y: Float) {
@@ -107,18 +109,40 @@ class Drawing(context: Context?) : View(context) {
     private fun touchUp() {
         scribble.lineTo(oldX, oldY)
         val pathApproximation = scribble.approximate(0.5f)
-        Log.d("troll_art", "Number of points: ${pathApproximation.size / 3}")
         var pathPoints = normalizeFromRightCW(
             pathApproximation,
-            measuredWidth / 2f + requestedSquare.SideLength.toFloat() / 2f,
-            //measuredWidth / 2f + requestedCircle.Radius.toFloat(),
+            measuredWidth / 2f + requestedShape.EdgeDistance,
             measuredHeight / 2f
         )
-        //grade = requestedCircle.GradeDrawing(pathPoints)
-        grade = requestedSquare.GradeDrawing(pathPoints)
-        //TODO: Encourage speed drawing, grade appropriate how fast they drew
-        // Probably compare to...ideal time, by shape, and you get a bonus for being under
-        // (this way, if you drew worse, but did so quickly, you get credit)
+        val endTime = System.currentTimeMillis()
+
+        grade = requestedShape.GradeDrawing(pathPoints, (endTime - startTime))
+        playerScore += grade
+        tries++
+        if (tries < 3) {
+            scribble.reset()
+            getNewShape()
+        } else {
+            Victory = playerScore > trollScore
+            handler()
+        }
+    }
+
+
+    private fun getNewShape() {
+        val maxWidth = measuredWidth * 0.8
+        //from 50% of maxwidth to 100% of maxwidth
+        val randomWidth = Math.random() * maxWidth * 0.5 + 0.5 * maxWidth
+        var newShape = (Math.random() * 2).roundToInt()
+        while(newShape == oldShape){
+            newShape = (Math.random() * 2).roundToInt()
+        }
+        requestedShape = when (newShape) {
+            0 -> Square(measuredWidth / 2f, measuredHeight / 2f, randomWidth)
+            1 -> Circle(measuredWidth / 2f, measuredHeight / 2f, randomWidth * 0.5)//because radius
+            else -> Triangle(measuredWidth / 2f, measuredHeight / 2f, randomWidth * 2 / sqrt(3f))
+        }
+        oldShape = newShape
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
@@ -137,6 +161,10 @@ class Drawing(context: Context?) : View(context) {
             }
         }
         return true
+    }
+
+    fun setFinishHandler(h: () -> Unit) {
+        handler = h
     }
 }
 

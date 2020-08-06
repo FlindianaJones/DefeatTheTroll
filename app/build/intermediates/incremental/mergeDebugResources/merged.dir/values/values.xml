@@ -918,7 +918,7 @@
     <string name="app_name">Defeat The Troll</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="art_btn_txt">Art</string>
-    <string name="art_prompt_txt">Draw something!</string>
+    <string name="art_prompt_txt">Ah, a capital idea, the %1$s will never see it coming! Partly because, you know, it makes no sense. You challenge the %1$s to an art competition, and it agrees.\n\nYou\'ll be asked to draw shapes quickly and well; try and do better than the %1$s in 3 rounds to win!</string>
     <string name="attack_btn_txt">Attack</string>
     <string name="axe_btn_txt">Axe</string>
     <string name="axe_sel_prompt_txt">Choose your axe:</string>
@@ -931,6 +931,7 @@
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="chip_text">Chip text</string>
     <string name="clear_text_end_icon_content_description">Clear text</string>
+    <string name="continue_art_btn_txt">To Art!</string>
     <string name="default_beast">Troll</string>
     <string name="defeat_splash_txt">In Soviet Russia, you defeat %1$s! Here though, you die.</string>
     <string name="defend_btn_txt">Defend</string>

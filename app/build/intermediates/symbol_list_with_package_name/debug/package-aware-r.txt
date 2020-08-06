@@ -1533,6 +1533,7 @@ id contact_name
 id container
 id content
 id contentPanel
+id continue_art_btn
 id continue_btn
 id coordinator
 id custom
@@ -1997,6 +1998,7 @@ string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
 string clear_text_end_icon_content_description
+string continue_art_btn_txt
 string default_beast
 string defeat_splash_txt
 string defend_btn_txt
