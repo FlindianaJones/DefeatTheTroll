@@ -5,25 +5,23 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.defeatthetroll.data.ApiService
-import com.example.defeatthetroll.data.AuthInterceptor
-import com.example.defeatthetroll.data.DootRequest
-import com.example.defeatthetroll.data.Feedback
+import com.example.defeatthetroll.models.Feedback
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_view_feedback.*
-import okhttp3.OkHttpClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 
 
 class ViewFeedback : AppCompatActivity() {
 
-    fun dootFunction(id: String, up: Boolean) {
-        val retrofit = Retrofit.Builder()
-            .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
+    var feedbacks = mutableListOf<Feedback>()
+    val db = FirebaseDatabase.getInstance()
+    val myRef = db.getReference("/feedback")
+
+    fun dootFunction(id: String, newRating: Int) {
+        myRef.child(id).updateChildren(mapOf(Pair("rating", newRating)))
+        /*val retrofit = Retrofit.Builder()
+            .client(
+                OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build()
+            )//throw in a nice little custom auth interceptor to our HTTP client
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(BASE_API_URL)
@@ -33,10 +31,10 @@ class ViewFeedback : AppCompatActivity() {
 
         var dootReq = trollDefeatAPI.doot(DootRequest(id, up))
 
-        dootReq.enqueue(object: Callback<String>{
+        dootReq.enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
                 Log.d("troll_network", t.message ?: "something unspecified went wrong...")
-                if(up){
+                if (up) {
                     showToast("Failed to updoot, so sorry!")
                 } else {
                     showToast("Failed to downdoot, so sorry!")
@@ -44,32 +42,60 @@ class ViewFeedback : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>) {
-                if(!response.isSuccessful){
+                if (!response.isSuccessful) {
                     Log.d("troll_network", "${response.code()}: ${response.errorBody()?.string()}")
                 }
 
-                if(response.body() != null){
+                if (response.body() != null) {
                     Log.d("troll_network", response.body().toString())
                 } else {
                     return
                 }
-                if(up){
+                if (up) {
                     showToast("Successfully updooted!")
                 } else {
                     showToast("Successfully downdooted.")
                 }
                 loadFeedbackList()
             }
-        })
+        })*/
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_feedback)
 
+        val db = FirebaseDatabase.getInstance()
+        val myRef = db.getReference("/feedback")
+
         loadFeedbackList()
     }
 
+    private fun loadFeedbackList() {
+
+        val initialGet = object : ValueEventListener {
+            override fun onCancelled(err: DatabaseError) {
+                showToast("Oh no!\n$err")
+                Log.e("troll_feedback", err.toString())
+                Log.e("troll_feedback", db.toString())
+            }
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+                feedbacks.clear()
+                for (fbSnapshot in snapshot.children) {
+                    var currFeedback = fbSnapshot.getValue(Feedback::class.java)!!
+                    currFeedback.key = fbSnapshot.key.toString()
+                    feedbacks.add(currFeedback)
+                }
+                feedback_list.adapter = FeedbackAdapter(feedbacks, ::dootFunction)
+                feedback_list.layoutManager = LinearLayoutManager(applicationContext)
+            }
+        }
+
+       myRef.addValueEventListener(initialGet)
+    }
+
+    /*
     private fun loadFeedbackList() {
         val retrofit = Retrofit.Builder()
             .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
@@ -100,6 +126,7 @@ class ViewFeedback : AppCompatActivity() {
             }
         })
     }
+    */
 
     fun showToast(toast: String?) {
         runOnUiThread {

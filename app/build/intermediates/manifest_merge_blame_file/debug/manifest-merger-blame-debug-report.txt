@@ -14,75 +14,192 @@
 11-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:5:5-67
 11-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:5:22-64
 12
-13    <application
-13-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:7:5-33:19
-14        android:allowBackup="true"
-14-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:8:9-35
-15        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-15-->[androidx.core:core:1.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/e270a6e88d0fcab34dc57babf6858d5a/core-1.3.0/AndroidManifest.xml:24:18-86
-16        android:debuggable="true"
-17        android:extractNativeLibs="false"
-18        android:icon="@mipmap/ic_launcher"
-18-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:9:9-43
-19        android:label="@string/app_name"
-19-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:10:9-41
-20        android:roundIcon="@mipmap/ic_launcher_round"
-20-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:11:9-54
-21        android:supportsRtl="true"
-21-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:12:9-35
-22        android:testOnly="true"
-23        android:theme="@style/AppTheme" >
-23-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:9-40
-24        <activity android:name="com.example.defeatthetroll.Art" />
-24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:9-50
-24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:19-38
-25        <activity android:name="com.example.defeatthetroll.Login" />
-25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:9-43
-25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:19-40
-26        <activity android:name="com.example.defeatthetroll.ViewFeedback" />
-26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:9-50
-26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:19-47
-27        <activity android:name="com.example.defeatthetroll.SettingsActivity" />
-27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:9-54
-27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:19-51
-28        <activity android:name="com.example.defeatthetroll.LoveProfile" />
-28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:9-49
-28-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:19-46
-29        <activity android:name="com.example.defeatthetroll.Love" />
-29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:9-42
-29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:19-39
-30        <activity android:name="com.example.defeatthetroll.QuestChoice" />
-30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:9-49
-30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:19-46
-31        <activity android:name="com.example.defeatthetroll.data.Choice" />
-31-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:21:9-49
-31-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:21:19-46
-32        <activity android:name="com.example.defeatthetroll.Quest" />
-32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:9-43
-32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:19-40
-33        <activity android:name="com.example.defeatthetroll.Axe" />
-33-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:23:9-41
-33-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:23:19-38
-34        <activity android:name="com.example.defeatthetroll.End" />
-34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:9-41
-34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:19-38
-35        <activity android:name="com.example.defeatthetroll.Memes" />
-35-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:25:9-43
-35-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:25:19-40
-36        <activity android:name="com.example.defeatthetroll.MainActivity" >
-36-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:26:9-32:20
-36-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:26:19-47
-37            <intent-filter>
-37-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:27:13-31:29
-38                <action android:name="android.intent.action.MAIN" />
-38-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:28:17-69
-38-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:28:25-66
-39
-40                <category android:name="android.intent.category.LAUNCHER" />
-40-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:30:17-77
-40-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:30:27-74
-41            </intent-filter>
-42        </activity>
-43    </application>
-44
-45</manifest>
+13    <!-- Although the *SdkVersion is captured in gradle build files, this is required for non gradle builds -->
+14    <!-- <uses-sdk android:minSdkVersion="14"/> -->
+15    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+15-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:25:5-79
+15-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:25:22-76
+16    <uses-permission android:name="android.permission.WAKE_LOCK" />
+16-->[com.google.android.gms:play-services-measurement-api:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/ed6a855b3e4c428cd1d451afb0eae8f7/jetified-play-services-measurement-api-17.4.4/AndroidManifest.xml:24:5-68
+16-->[com.google.android.gms:play-services-measurement-api:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/ed6a855b3e4c428cd1d451afb0eae8f7/jetified-play-services-measurement-api-17.4.4/AndroidManifest.xml:24:22-65
+17    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+17-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:26:5-110
+17-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:26:22-107
+18
+19    <application
+19-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:7:5-33:19
+20        android:allowBackup="true"
+20-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:8:9-35
+21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+21-->[androidx.core:core:1.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/4ebe32f0d3d4d06cc2e8dd57661df4df/core-1.3.1/AndroidManifest.xml:24:18-86
+22        android:debuggable="true"
+23        android:extractNativeLibs="false"
+24        android:icon="@mipmap/ic_launcher"
+24-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:9:9-43
+25        android:label="@string/app_name"
+25-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:10:9-41
+26        android:roundIcon="@mipmap/ic_launcher_round"
+26-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:11:9-54
+27        android:supportsRtl="true"
+27-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:12:9-35
+28        android:testOnly="true"
+29        android:theme="@style/AppTheme" >
+29-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:13:9-40
+30        <activity android:name="com.example.defeatthetroll.Art" />
+30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:9-50
+30-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:14:19-38
+31        <activity android:name="com.example.defeatthetroll.Login" />
+31-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:9-43
+31-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:15:19-40
+32        <activity android:name="com.example.defeatthetroll.ViewFeedback" />
+32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:9-50
+32-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:16:19-47
+33        <activity android:name="com.example.defeatthetroll.SettingsActivity" />
+33-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:9-54
+33-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:17:19-51
+34        <activity android:name="com.example.defeatthetroll.LoveProfile" />
+34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:9-49
+34-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:18:19-46
+35        <activity android:name="com.example.defeatthetroll.Love" />
+35-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:9-42
+35-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:19:19-39
+36        <activity android:name="com.example.defeatthetroll.QuestChoice" />
+36-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:9-49
+36-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:20:19-46
+37        <activity android:name="com.example.defeatthetroll.data.Choice" />
+37-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:21:9-49
+37-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:21:19-46
+38        <activity android:name="com.example.defeatthetroll.Quest" />
+38-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:9-43
+38-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:22:19-40
+39        <activity android:name="com.example.defeatthetroll.Axe" />
+39-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:23:9-41
+39-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:23:19-38
+40        <activity android:name="com.example.defeatthetroll.End" />
+40-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:9-41
+40-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:24:19-38
+41        <activity android:name="com.example.defeatthetroll.Memes" />
+41-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:25:9-43
+41-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:25:19-40
+42        <activity android:name="com.example.defeatthetroll.MainActivity" >
+42-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:26:9-32:20
+42-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:26:19-47
+43            <intent-filter>
+43-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:27:13-31:29
+44                <action android:name="android.intent.action.MAIN" />
+44-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:28:17-69
+44-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:28:25-66
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:30:17-77
+46-->/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/AndroidManifest.xml:30:27-74
+47            </intent-filter>
+48        </activity>
+49
+50        <service
+50-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:29:9-35:19
+51            android:name="com.google.firebase.components.ComponentDiscoveryService"
+51-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:30:13-84
+52            android:directBootAware="true"
+52-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+53            android:exported="false" >
+53-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:31:13-37
+54            <meta-data
+54-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:32:13-34:85
+55                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+55-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:33:17-109
+56                android:value="com.google.firebase.components.ComponentRegistrar" />
+56-->[com.google.firebase:firebase-database:19.3.1] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/c4cc85da526c9211e9938a548df251e6/jetified-firebase-database-19.3.1/AndroidManifest.xml:34:17-82
+57            <meta-data
+57-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:36:13-38:85
+58                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+58-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:37:17-109
+59                android:value="com.google.firebase.components.ComponentRegistrar" />
+59-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:38:17-82
+60            <meta-data
+60-->[com.google.android.gms:play-services-measurement-api:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/ed6a855b3e4c428cd1d451afb0eae8f7/jetified-play-services-measurement-api-17.4.4/AndroidManifest.xml:30:13-32:85
+61                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+61-->[com.google.android.gms:play-services-measurement-api:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/ed6a855b3e4c428cd1d451afb0eae8f7/jetified-play-services-measurement-api-17.4.4/AndroidManifest.xml:31:17-139
+62                android:value="com.google.firebase.components.ComponentRegistrar" />
+62-->[com.google.android.gms:play-services-measurement-api:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/ed6a855b3e4c428cd1d451afb0eae8f7/jetified-play-services-measurement-api-17.4.4/AndroidManifest.xml:32:17-82
+63            <meta-data
+63-->[com.google.firebase:firebase-installations:16.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/5fb2b739787362f13cc55b3b6c87e877/jetified-firebase-installations-16.3.2/AndroidManifest.xml:17:13-19:85
+64                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+64-->[com.google.firebase:firebase-installations:16.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/5fb2b739787362f13cc55b3b6c87e877/jetified-firebase-installations-16.3.2/AndroidManifest.xml:18:17-127
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[com.google.firebase:firebase-installations:16.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/5fb2b739787362f13cc55b3b6c87e877/jetified-firebase-installations-16.3.2/AndroidManifest.xml:19:17-82
+66        </service>
+67
+68        <activity
+68-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:24:9-31:50
+69            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+69-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:25:13-85
+70            android:excludeFromRecents="true"
+70-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:26:13-46
+71            android:exported="true"
+71-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:27:13-36
+72            android:launchMode="singleTask"
+72-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:28:13-44
+73            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+73-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:29:13-102
+74            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+74-->[com.google.firebase:firebase-auth:19.3.2] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/85c4dc9c8de7f4ab03447b63ff32d041/jetified-firebase-auth-19.3.2/AndroidManifest.xml:30:13-72
+75
+76        <provider
+76-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+77            android:name="com.google.firebase.provider.FirebaseInitProvider"
+77-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+78            android:authorities="com.example.defeatthetroll.firebaseinitprovider"
+78-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+79            android:exported="false"
+79-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+80            android:initOrder="100" />
+80-->[com.google.firebase:firebase-common:19.3.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/7f041dddbac27b8efa948d08fe9bd4a8/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+81
+82        <activity
+82-->[com.google.android.gms:play-services-base:17.1.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/197184d7c0207a7ac278847a3f7a3292/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+83            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+83-->[com.google.android.gms:play-services-base:17.1.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/197184d7c0207a7ac278847a3f7a3292/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+84            android:exported="false"
+84-->[com.google.android.gms:play-services-base:17.1.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/197184d7c0207a7ac278847a3f7a3292/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+85            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+85-->[com.google.android.gms:play-services-base:17.1.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/197184d7c0207a7ac278847a3f7a3292/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+86
+87        <receiver
+87-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:29:9-33:20
+88            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+88-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:30:13-85
+89            android:enabled="true"
+89-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:31:13-35
+90            android:exported="false" >
+90-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:32:13-37
+91        </receiver>
+92
+93        <service
+93-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:35:9-38:40
+94            android:name="com.google.android.gms.measurement.AppMeasurementService"
+94-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:36:13-84
+95            android:enabled="true"
+95-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:37:13-35
+96            android:exported="false" />
+96-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:38:13-37
+97        <service
+97-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:39:9-43:72
+98            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+98-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:40:13-87
+99            android:enabled="true"
+99-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:41:13-35
+100            android:exported="false"
+100-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:42:13-37
+101            android:permission="android.permission.BIND_JOB_SERVICE" />
+101-->[com.google.android.gms:play-services-measurement:17.4.4] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/df94417d51cefdafd8258eb846412918/jetified-play-services-measurement-17.4.4/AndroidManifest.xml:43:13-69
+102
+103        <meta-data
+103-->[com.google.android.gms:play-services-basement:17.0.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/172538674016664d69928bada8d8fbf0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+104            android:name="com.google.android.gms.version"
+104-->[com.google.android.gms:play-services-basement:17.0.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/172538674016664d69928bada8d8fbf0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+105            android:value="@integer/google_play_services_version" />
+105-->[com.google.android.gms:play-services-basement:17.0.0] /Users/fburklin/.gradle/caches/transforms-2/files-2.1/172538674016664d69928bada8d8fbf0/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+106    </application>
+107
+108</manifest>

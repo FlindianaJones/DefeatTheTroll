@@ -8,7 +8,11 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.example.defeatthetroll.data.*
+import com.example.defeatthetroll.data.QuestDatabaseHandler
+import com.example.defeatthetroll.models.Feedback
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_settings.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -18,8 +22,14 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.lang.Exception
+import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
+
+    val db = FirebaseDatabase.getInstance()
+    val myRef = db.getReference("/feedback")
+    val mAuth = FirebaseAuth.getInstance()
+    val mUser = mAuth.currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,8 +70,18 @@ class SettingsActivity : AppCompatActivity() {
 
         }
 
+        display_name.setText(mUser!!.displayName ?: "")
+
         return_btn.setOnClickListener {
             finish()
+        }
+
+        update_display_name_btn.setOnClickListener {
+            mUser!!.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(display_name.text.toString()).build()).addOnCompleteListener {
+                showToast("Updated your display name successfully!")
+            }.addOnCanceledListener {
+                showToast("Error while updating your display name!")
+            }
         }
 
         post_feedback_btn.setOnClickListener {
@@ -71,7 +91,13 @@ class SettingsActivity : AppCompatActivity() {
                 feedback_title.visibility = View.VISIBLE
                 feedback_title_txt.visibility = View.VISIBLE
             } else {
-                val retrofit = Retrofit.Builder()
+                var newFeedback = Feedback(feedback_title.text.toString(), feedback_content.text.toString(), mUser!!.displayName!!)
+                myRef.child(UUID.randomUUID().toString()).setValue(newFeedback).addOnCompleteListener {
+                    showToast("Successfully posted Feedback!")
+                }.addOnCanceledListener {
+                    showToast("Error while posting feedback!")
+                }
+                /*val retrofit = Retrofit.Builder()
                     .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
                     .addConverterFactory(ScalarsConverterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
@@ -110,11 +136,11 @@ class SettingsActivity : AppCompatActivity() {
                         feedback_content.setText("")
                         feedback_title.setText("")
                     }
-                })
+                })*/
             }
         }
 
-        grant_btn.setOnClickListener {
+        /*grant_btn.setOnClickListener {
             val retrofit = Retrofit.Builder()
                 .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -142,7 +168,7 @@ class SettingsActivity : AppCompatActivity() {
                     }
                 }
             })
-        }
+        }*/
 
         regen_quests_btn.setOnClickListener {
             try {

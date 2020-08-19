@@ -1,30 +1,53 @@
 package com.example.defeatthetroll
 
 import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.example.defeatthetroll.data.ApiService
 import com.example.defeatthetroll.data.AuthInterceptor
 import com.example.defeatthetroll.data.AuthResponse
 import com.example.defeatthetroll.data.Credentials
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
 import retrofit2.Callback
-import retrofit2.Retrofit.*
+import retrofit2.Retrofit.Builder
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class Login : AppCompatActivity() {
+
+    lateinit var mAuth: FirebaseAuth
+    lateinit var mUser: FirebaseUser
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        mAuth = FirebaseAuth.getInstance()
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
         login_btn.setOnClickListener {
+            mAuth.signInWithEmailAndPassword(login_username_txt.text.toString(), login_password_txt.text.toString()).addOnCompleteListener {
+                if (it.isSuccessful && mAuth.currentUser != null) {
+                    // Sign in success, update UI with the signed-in user's information
+                    mUser = mAuth.currentUser!!
+                    showToast("Login Successful!")
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("troll_auth", "signInWithEmail:Failure", it.exception)
+                    // If sign in fails, display a message to the user.
+                    showToast("Authentication Failed")
+                }
+            }
+
             // TODO: Maybe organize this a little better?
-            val retrofit = Builder()
+            /*val retrofit = Builder()
                 .client(OkHttpClient.Builder().addInterceptor(AuthInterceptor()).build())//throw in a nice little custom auth interceptor to our HTTP client
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
@@ -66,7 +89,21 @@ class Login : AppCompatActivity() {
                         commit()
                     }
                 }
-            })
+            })*/
+        }
+
+        signup_btn.setOnClickListener {
+            mAuth.createUserWithEmailAndPassword(login_username_txt.text.toString(), login_password_txt.text.toString()).addOnCompleteListener {
+                if (it.isSuccessful && mAuth.currentUser != null) {
+                    // Sign in success, update UI with the signed-in user's information
+                    mUser = mAuth.currentUser!!
+                    showToast("Signup Succeeded!")
+                } else {
+                    // If sign in fails, display a message to the user.
+                    Log.w("troll_auth", "createUserWithEmailAndPassword:Failure", it.exception)
+                    showToast("Authentication Failed")
+                }
+            }
         }
     }
 

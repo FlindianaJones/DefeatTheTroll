@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "264158161465",
+    "firebase_url": "https://defeat-the-troll.firebaseio.com",
+    "project_id": "defeat-the-troll",
+    "storage_bucket": "defeat-the-troll.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:264158161465:android:883f7ffd99ea81439b7be8",
+        "android_client_info": {
+          "package_name": "com.example.defeatthetroll"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "264158161465-q23kdg7b42jug9mvja989rerhprdbv4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.defeatthetroll",
+            "certificate_hash": "788b7795d59269db195a375e38b4ff5552ac8c10"
+          }
+        },
+        {
+          "client_id": "264158161465-mfhhpvfcjias2spba5ldj57jbdblml4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEsogNmzyJ4x6qCQDgNDQe1IaSw83PXcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "264158161465-mfhhpvfcjias2spba5ldj57jbdblml4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

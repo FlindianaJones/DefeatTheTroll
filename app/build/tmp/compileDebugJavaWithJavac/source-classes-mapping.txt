@@ -1,0 +1,36 @@
+com/example/defeatthetroll/databinding/ActivityLoveBinding.java
+ com.example.defeatthetroll.databinding.ActivityLoveBinding
+com/example/defeatthetroll/databinding/ActivityMemesBindingImpl.java
+ com.example.defeatthetroll.databinding.ActivityMemesBindingImpl
+com/example/defeatthetroll/databinding/ActivityMemesBinding.java
+ com.example.defeatthetroll.databinding.ActivityMemesBinding
+com/example/defeatthetroll/databinding/ActivityArtBinding.java
+ com.example.defeatthetroll.databinding.ActivityArtBinding
+com/example/defeatthetroll/databinding/ActivityMainBinding.java
+ com.example.defeatthetroll.databinding.ActivityMainBinding
+com/example/defeatthetroll/DataBindingInfo.java
+ com.example.defeatthetroll.DataBindingInfo
+com/example/defeatthetroll/DataBinderMapperImpl.java
+ com.example.defeatthetroll.DataBinderMapperImpl
+ com.example.defeatthetroll.DataBinderMapperImpl$InnerBrLookup
+ com.example.defeatthetroll.DataBinderMapperImpl$InnerLayoutIdLookup
+com/example/defeatthetroll/BR.java
+ com.example.defeatthetroll.BR
+com/example/defeatthetroll/databinding/ActivityAxeBinding.java
+ com.example.defeatthetroll.databinding.ActivityAxeBinding
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
+com/example/defeatthetroll/databinding/ActivityArtBindingImpl.java
+ com.example.defeatthetroll.databinding.ActivityArtBindingImpl
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/example/defeatthetroll/databinding/ActivityLoveBindingImpl.java
+ com.example.defeatthetroll.databinding.ActivityLoveBindingImpl
+com/example/defeatthetroll/databinding/ActivityAxeBindingImpl.java
+ com.example.defeatthetroll.databinding.ActivityAxeBindingImpl
+com/example/defeatthetroll/databinding/ActivityMainBindingImpl.java
+ com.example.defeatthetroll.databinding.ActivityMainBindingImpl
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent
+com/example/defeatthetroll/BuildConfig.java
+ com.example.defeatthetroll.BuildConfig

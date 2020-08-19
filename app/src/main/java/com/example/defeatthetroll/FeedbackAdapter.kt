@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.defeatthetroll.data.Feedback
+import com.example.defeatthetroll.models.Feedback
 
 
-class FeedbackAdapter(private val feedbackItems: List<Feedback>, val dootFun: (String, Boolean) -> Unit): RecyclerView.Adapter<FeedbackAdapter.ViewHolder>() {
+class FeedbackAdapter(private val feedbackItems: List<Feedback>, val dootFun: (String, Int) -> Unit): RecyclerView.Adapter<FeedbackAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var titleTextView: TextView = itemView.findViewById(R.id.feedback_item_title_txt) as TextView
@@ -34,14 +34,14 @@ class FeedbackAdapter(private val feedbackItems: List<Feedback>, val dootFun: (S
         val feedbackItem: Feedback = feedbackItems[position]
         // Set item views based on your views and data model
         viewHolder.titleTextView.text = feedbackItem.title
-        viewHolder.posterTextView.text = feedbackItem.poster.firstName + " " + feedbackItem.poster.lastName
+        viewHolder.posterTextView.text = feedbackItem.poster
         viewHolder.contentTextView.text = feedbackItem.content
         viewHolder.ratingTextView.text = """Rating: ${feedbackItem.rating}"""
         viewHolder.updootButton.setOnClickListener {
-            dootFun(feedbackItem._id, true)
+            dootFun(feedbackItem.key, feedbackItem.rating + 1)
         }
         viewHolder.downdootButton.setOnClickListener {
-            dootFun(feedbackItem._id, false)
+            dootFun(feedbackItem.key, feedbackItem.rating - 1)
         }
     }
 

@@ -8,6 +8,9 @@ import android.util.Log
 import androidx.databinding.DataBindingUtil
 import com.example.defeatthetroll.data.*
 import com.example.defeatthetroll.databinding.ActivityMainBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import retrofit2.Call
@@ -19,6 +22,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var mAuth: FirebaseAuth
+    lateinit var mUser: FirebaseUser
+
     companion object {
         @JvmStatic
         val AppSettings = Settings()
@@ -26,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        mAuth = FirebaseAuth.getInstance()
 
         val sharedPref = getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE)
 
@@ -70,6 +78,18 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, ViewFeedback::class.java))
         }
 
+        if(mAuth.currentUser != null){
+            mUser = mAuth.currentUser!!
+            //already logged in, don't need to do anything
+            login_activity_btn.isEnabled = false
+            view_feedback_btn.isEnabled = true
+            if(!mUser.isEmailVerified){
+                Log.d("troll_auth", "Stupix app")
+            }
+        } else {
+            view_feedback_btn.isEnabled = false
+        }
+
         login_activity_btn.setOnClickListener{
             Log.d("btn_click", "Click Login")
             startActivity(Intent(this, Login::class.java))
@@ -78,6 +98,19 @@ class MainActivity : AppCompatActivity() {
         art_btn.setOnClickListener {
             Log.d("btn_click", "Click Art")
             startActivity(Intent(this, Art::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        if(mAuth.currentUser != null){
+            mUser = mAuth.currentUser!!
+            //already logged in, don't need to do anything
+            login_activity_btn.isEnabled = false
+            view_feedback_btn.isEnabled = true
+        } else {
+            view_feedback_btn.isEnabled = false
         }
     }
 }

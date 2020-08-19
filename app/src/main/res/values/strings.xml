@@ -59,4 +59,6 @@
     <string name="art_btn_txt">Art</string>
     <string name="art_prompt_txt">Ah, a capital idea, the %1$s will never see it coming! Partly because, you know, it makes no sense. You challenge the %1$s to an art competition, and it agrees.\n\nYou\'ll be asked to draw shapes quickly and well; try and do better than the %1$s in 3 rounds to win!</string>
     <string name="continue_art_btn_txt">To Art!</string>
+    <string name="signup_btn_txt">Sign Up</string>
+    <string name="display_name_txt">Display Name:</string>
 </resources>
