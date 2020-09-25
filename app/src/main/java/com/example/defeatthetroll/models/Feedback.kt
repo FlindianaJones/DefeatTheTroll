@@ -6,7 +6,6 @@ class Feedback {
     var rating: Int = 1
     var created: String = ""
     var poster: String
-    var posterDisplayName: String = ""
     //Not set by default when reading from Firebase
     var key: String = ""
 

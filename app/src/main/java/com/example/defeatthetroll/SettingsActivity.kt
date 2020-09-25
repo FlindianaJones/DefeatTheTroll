@@ -9,27 +9,25 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.defeatthetroll.data.QuestDatabaseHandler
+import com.example.defeatthetroll.models.Duel
 import com.example.defeatthetroll.models.Feedback
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_settings.*
-import okhttp3.OkHttpClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.lang.Exception
 import java.util.*
 
 class SettingsActivity : AppCompatActivity() {
 
-    val db = FirebaseDatabase.getInstance()
-    val myRef = db.getReference("/feedback")
-    val mAuth = FirebaseAuth.getInstance()
-    val mUser = mAuth.currentUser
+    private val db = FirebaseDatabase.getInstance()
+    private val feedbackRef = db.getReference("/feedback")
+    private val duelsRef = db.getReference("/duels")
+    private val mAuth = FirebaseAuth.getInstance()
+    private val mUser = mAuth.currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,11 +75,47 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         update_display_name_btn.setOnClickListener {
-            mUser!!.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(display_name.text.toString()).build()).addOnCompleteListener {
+            mUser.updateProfile(UserProfileChangeRequest.Builder().setDisplayName(display_name.text.toString()).build()).addOnCompleteListener {
                 showToast("Updated your display name successfully!")
             }.addOnCanceledListener {
                 showToast("Error while updating your display name!")
             }
+        }
+
+        duel_spam_btn.setOnClickListener {
+            for(i in 0..9000){
+                var newDuel = Duel(i % 1000 != 0, "Spam Duel $i", this)
+                newDuel.id = "FAKE$i"
+                duelsRef.child(newDuel.id).setValue(newDuel).addOnCanceledListener {
+                    showToast("Error while creating spam duels")
+                }
+            }
+            showToast("Successfully created 9000 duels, probably")
+        }
+
+        clean_duels_btn.setOnClickListener {
+            val cleanerQuerier = object: ValueEventListener {
+                override fun onCancelled(error: DatabaseError) {
+                    showToast("Error cleaning out spam duels")
+                }
+
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    var toKeep = mutableListOf<Duel>()
+                    for (gameSnapshot in snapshot.children) {
+                        var currGame = gameSnapshot.getValue(Duel::class.java)!!
+                        if(!currGame.id.startsWith("FAKE")){
+                            toKeep.add(currGame)
+                        }
+                    }
+                    duelsRef.setValue(toKeep).addOnCompleteListener {
+                        showToast("Completed deleting all spam duels!")
+                    }.addOnCanceledListener {
+                        showToast("Error while cleaning the spam duels")
+                    }
+                }
+            }
+
+            duelsRef.addListenerForSingleValueEvent(cleanerQuerier)
         }
 
         post_feedback_btn.setOnClickListener {
@@ -92,7 +126,7 @@ class SettingsActivity : AppCompatActivity() {
                 feedback_title_txt.visibility = View.VISIBLE
             } else {
                 var newFeedback = Feedback(feedback_title.text.toString(), feedback_content.text.toString(), mUser!!.displayName!!)
-                myRef.child(UUID.randomUUID().toString()).setValue(newFeedback).addOnCompleteListener {
+                feedbackRef.child(UUID.randomUUID().toString()).setValue(newFeedback).addOnCompleteListener {
                     showToast("Successfully posted Feedback!")
                 }.addOnCanceledListener {
                     showToast("Error while posting feedback!")

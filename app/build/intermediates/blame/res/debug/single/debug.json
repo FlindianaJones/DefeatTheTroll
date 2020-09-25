@@ -4,6 +4,10 @@
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_settings.xml"
     },
     {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_activity_duel.xml.flat",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_duel.xml"
+    },
+    {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_activity_view_feedback.xml.flat",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_view_feedback.xml"
     },
@@ -72,6 +76,10 @@
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_quest.xml"
     },
     {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_duel_chat_message.xml.flat",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/duel_chat_message.xml"
+    },
+    {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/drawable_trollette.jpg.flat",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/drawable/trollette.jpg"
     },
@@ -112,6 +120,10 @@
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_duel_item.xml.flat",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/duel_item.xml"
+    },
+    {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_feedback_item.xml.flat",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/feedback_item.xml"
     },
@@ -134,6 +146,10 @@
     {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_activity_art.xml.flat",
         "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_art.xml"
+    },
+    {
+        "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/layout_activity_magic.xml.flat",
+        "source": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/src/main/res/layout/activity_magic.xml"
     },
     {
         "merged": "/Users/fburklin/AndroidStudioProjects/DefeatTheTroll/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.png.flat",

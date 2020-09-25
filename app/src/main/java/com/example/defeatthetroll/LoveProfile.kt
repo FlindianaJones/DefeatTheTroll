@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.defeatthetroll.data.LoveChatMessageAdapter
 import com.example.defeatthetroll.data.TrollLady
 import kotlinx.android.synthetic.main.activity_love_profile.*
 import java.util.*
@@ -45,7 +46,7 @@ class LoveProfile : AppCompatActivity() {
             bite_btn.isEnabled = false
 
             message_list.visibility = View.VISIBLE
-            val adapter = ChatMessageAdapter(chatMessages)
+            val adapter = LoveChatMessageAdapter(chatMessages)
             message_list.adapter = adapter
             val lm = LinearLayoutManager(this)
             lm.stackFromEnd = true

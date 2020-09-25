@@ -5,6 +5,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.defeatthetroll.data.FeedbackAdapter
 import com.example.defeatthetroll.models.Feedback
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_view_feedback.*

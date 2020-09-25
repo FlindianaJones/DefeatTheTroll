@@ -61,4 +61,15 @@
     <string name="continue_art_btn_txt">To Art!</string>
     <string name="signup_btn_txt">Sign Up</string>
     <string name="display_name_txt">Display Name:</string>
+    <string name="create_game_btn_txt">Create Game</string>
+    <string name="join_game_btn_txt">Join Game</string>
+    <string name="private_game_switch">Private Game?</string>
+    <string name="magic_btn_txt">Magic</string>
+    <string name="confirm_create_game_btn_txt">Confirm Create Game</string>
+    <string name="existing_game_id_hnt">Game Id</string>
+    <string name="existing_game_id_txt">Private Game Id:</string>
+    <string name="chat_msg_txt_hint">Chat Message</string>
+    <string name="guess_spnr_txt">Your Guess:</string>
+    <string name="guess_btn_txt">Guess</string>
+    <string name="waiting_for_player_txt">Waiting for another player to join...</string>
 </resources>

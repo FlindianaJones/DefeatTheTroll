@@ -81,6 +81,42 @@
         <item>Rescuing Princes</item>
         <item>Prequel Memes</item>
     </string-array>
+    <string-array name="colors">
+        <item>Red</item>
+        <item>Orange</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Indigo</item>
+        <item>Violet</item>
+    </string-array>
+    <string-array name="elements">
+        <item>Fire</item>
+        <item>Air</item>
+        <item>Electricity</item>
+        <item>Acid</item>
+        <item>Water</item>
+        <item>Force</item>
+        <item>Poison</item>
+    </string-array>
+    <string-array name="shapes">
+        <item>Circle</item>
+        <item>Square</item>
+        <item>Triangle</item>
+        <item>Star</item>
+        <item>Teardrop</item>
+        <item>Trapezoid</item>
+        <item>Squiggly Line</item>
+    </string-array>
+    <string-array name="spells">
+        <item>%sball</item>
+        <item>Protection from %s</item>
+        <item>Summon %s Elemental</item>
+        <item>Ray of %s</item>
+        <item>Transmute Blood to %s</item>
+        <item>Cone of %s</item>
+        <item>%s Burst</item>
+    </string-array>
     <string-array name="db_populate_commands">
         <item>INSERT INTO quest_node (id, prompt) VALUES (\'1\', \'You find yourself in a forest, surrounded by trees. That\'\'s how forests work really…birds flutter from tree to tree, and you smell what you believe to be food cooking over a wood fire somewhere nearby.\n\nWhich direction will you head?\');</item>
         <item>INSERT INTO choice (key, keyword, label, result, next_node_id, node_id) VALUES (\'1\', \'\', \'Left\', \'Deciding to follow the left hand rule, you follow the left pathway through the woods, boulders cropping up from time to time.\', 100, 1);</item>

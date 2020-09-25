@@ -31,6 +31,9 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   public final Button loveBtn;
 
   @NonNull
+  public final Button magicBtn;
+
+  @NonNull
   public final Button memeBtn;
 
   @NonNull
@@ -49,13 +52,15 @@ public abstract class ActivityMainBinding extends ViewDataBinding {
   protected Settings mSelectedBeast;
 
   protected ActivityMainBinding(Object _bindingComponent, View _root, int _localFieldCount,
-      Button artBtn, Button axeBtn, Button loginActivityBtn, Button loveBtn, Button memeBtn,
-      Button questBtn, ImageButton settingsBtn, TextView textView, Button viewFeedbackBtn) {
+      Button artBtn, Button axeBtn, Button loginActivityBtn, Button loveBtn, Button magicBtn,
+      Button memeBtn, Button questBtn, ImageButton settingsBtn, TextView textView,
+      Button viewFeedbackBtn) {
     super(_bindingComponent, _root, _localFieldCount);
     this.artBtn = artBtn;
     this.axeBtn = axeBtn;
     this.loginActivityBtn = loginActivityBtn;
     this.loveBtn = loveBtn;
+    this.magicBtn = magicBtn;
     this.memeBtn = memeBtn;
     this.questBtn = questBtn;
     this.settingsBtn = settingsBtn;

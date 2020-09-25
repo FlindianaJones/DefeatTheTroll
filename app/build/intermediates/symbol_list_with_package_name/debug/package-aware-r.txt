@@ -57,7 +57,9 @@ animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
 array beast_types
+array colors
 array db_populate_commands
+array elements
 array favorites
 array first_name
 array last_name_begin
@@ -65,6 +67,8 @@ array last_name_end
 array negative_response
 array positive_response
 array profile_pics
+array shapes
+array spells
 attr action
 attr actionBarDivider
 attr actionBarItemBackground
@@ -1621,8 +1625,10 @@ id center
 id center_horizontal
 id center_vertical
 id chains
+id chat_message_lst
 id chat_msg_left_pad
 id chat_msg_right_pad
+id chat_msg_txt
 id checkbox
 id checked
 id chip
@@ -1636,6 +1642,7 @@ id choice3
 id choice_layout
 id choice_prompt
 id chronometer
+id clean_duels_btn
 id clear_text
 id clip_horizontal
 id clip_vertical
@@ -1648,6 +1655,8 @@ id contentPanel
 id continue_art_btn
 id continue_btn
 id coordinator
+id create_game_btn
+id create_game_cont
 id custom
 id customPanel
 id cut
@@ -1669,11 +1678,23 @@ id disableHome
 id display_name
 id downdoot_btn
 id dropdown_menu
+id duel_chat_msg_content_txt
+id duel_chat_msg_from_txt
+id duel_chat_msgs
+id duel_created_txt
+id duel_item_border
+id duel_item_select_area
+id duel_name_txt
+id duel_result_txt
+id duel_spam_btn
 id edit_query
 id end
 id end_splash_txt
 id enterAlways
 id enterAlwaysCollapsed
+id existing_game_cont
+id existing_game_id_inp
+id existing_game_list
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1704,6 +1725,8 @@ id gone
 id grant_btn
 id group_divider
 id groups
+id guess_btn
+id guess_spnr
 id hideable
 id home
 id homeAsUp
@@ -1716,6 +1739,7 @@ id info
 id invisible
 id italic
 id item_touch_helper_previous_elevation
+id join_game_btn
 id keywords_txt
 id labeled
 id largeLabel
@@ -1734,6 +1758,8 @@ id love_btn
 id love_list
 id love_profile_top_cont
 id love_prompt
+id magic_btn
+id magic_game_name_inp
 id masked
 id meme_btn
 id message
@@ -1801,6 +1827,7 @@ id pin
 id play_again_btn
 id player_result_txt
 id post_feedback_btn
+id private_game_switch
 id profile_pic
 id progress_circular
 id progress_horizontal
@@ -1838,6 +1865,7 @@ id search_voice_btn
 id select_dialog_listview
 id selected
 id selected_meme_img
+id send_chat_msg_btn
 id send_message_btn
 id settings_btn
 id shortcut
@@ -1885,6 +1913,10 @@ id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
 id textView
+id textView10
+id textView11
+id textView12
+id textView13
 id textView2
 id textView3
 id textView4
@@ -2000,10 +2032,12 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_art
 layout activity_axe
+layout activity_duel
 layout activity_end
 layout activity_login
 layout activity_love
 layout activity_love_profile
+layout activity_magic
 layout activity_main
 layout activity_memes
 layout activity_quest
@@ -2027,6 +2061,8 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout duel_chat_message
+layout duel_item
 layout feedback_item
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions
@@ -2128,6 +2164,7 @@ string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
+string chat_msg_txt_hint
 string chip_text
 string clear_text_end_icon_content_description
 string common_google_play_services_enable_button
@@ -2148,7 +2185,9 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string confirm_create_game_btn_txt
 string continue_art_btn_txt
+string create_game_btn_txt
 string default_beast
 string default_web_client_id
 string defeat_splash_txt
@@ -2156,6 +2195,8 @@ string defend_btn_txt
 string display_name_txt
 string duplicate_meme_txt
 string error_icon_content_description
+string existing_game_id_hnt
+string existing_game_id_txt
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
@@ -2171,9 +2212,12 @@ string google_api_key
 string google_app_id
 string google_crash_reporting_api_key
 string google_storage_bucket
+string guess_btn_txt
+string guess_spnr_txt
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
 string item_view_role_description
+string join_game_btn_txt
 string keywords_prefix
 string login_btn_txt
 string login_internal_error
@@ -2182,6 +2226,7 @@ string login_password_hint
 string login_splash_txt
 string love_btn_text
 string love_prompt
+string magic_btn_txt
 string material_slider_range_end
 string material_slider_range_start
 string meme_btn_text
@@ -2240,6 +2285,7 @@ string peace_axe_btn_txt
 string play_again_btn_txt
 string post_feedback_btn_txt
 string preference_file_key
+string private_game_switch
 string project_id
 string quest_btn_txt
 string quest_prompt_txt
@@ -2257,6 +2303,7 @@ string splash_text
 string status_bar_notification_info_overflow
 string victory_splash_txt
 string view_feedback_btn_txt
+string waiting_for_player_txt
 string war_and_peace_axe_btn_txt
 string war_axe_btn_txt
 style AlertDialog_AppCompat

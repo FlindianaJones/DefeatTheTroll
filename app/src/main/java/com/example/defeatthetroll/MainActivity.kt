@@ -99,6 +99,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("btn_click", "Click Art")
             startActivity(Intent(this, Art::class.java))
         }
+
+        magic_btn.setOnClickListener {
+            Log.d("btn_click", "Click Magic")
+            startActivity(Intent(this, Magic::class.java))
+        }
     }
 
     override fun onResume() {

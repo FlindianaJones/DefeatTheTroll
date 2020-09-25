@@ -22,6 +22,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
         sViewsWithIds.put(R.id.view_feedback_btn, 7);
         sViewsWithIds.put(R.id.login_activity_btn, 8);
         sViewsWithIds.put(R.id.art_btn, 9);
+        sViewsWithIds.put(R.id.magic_btn, 10);
     }
     // views
     @NonNull
@@ -32,7 +33,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
     // Inverse Binding Event Handlers
 
     public ActivityMainBindingImpl(@Nullable androidx.databinding.DataBindingComponent bindingComponent, @NonNull View root) {
-        this(bindingComponent, root, mapBindings(bindingComponent, root, 10, sIncludes, sViewsWithIds));
+        this(bindingComponent, root, mapBindings(bindingComponent, root, 11, sIncludes, sViewsWithIds));
     }
     private ActivityMainBindingImpl(androidx.databinding.DataBindingComponent bindingComponent, View root, Object[] bindings) {
         super(bindingComponent, root, 1
@@ -40,6 +41,7 @@ public class ActivityMainBindingImpl extends ActivityMainBinding  {
             , (android.widget.Button) bindings[3]
             , (android.widget.Button) bindings[8]
             , (android.widget.Button) bindings[5]
+            , (android.widget.Button) bindings[10]
             , (android.widget.Button) bindings[2]
             , (android.widget.Button) bindings[4]
             , (android.widget.ImageButton) bindings[6]

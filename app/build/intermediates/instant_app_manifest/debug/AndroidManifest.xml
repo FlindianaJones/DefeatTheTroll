@@ -28,6 +28,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.defeatthetroll.DuelActivity" />
+        <activity android:name="com.example.defeatthetroll.Magic" />
         <activity android:name="com.example.defeatthetroll.Art" />
         <activity android:name="com.example.defeatthetroll.Login" />
         <activity android:name="com.example.defeatthetroll.ViewFeedback" />
